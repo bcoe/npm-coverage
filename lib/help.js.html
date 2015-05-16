@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./lib/help.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">./lib/help.js</span></h1>
+    <h2>
+        Statements: <span class="metric">60% <small>(78 / 130)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">52.38% <small>(33 / 63)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">54.55% <small>(12 / 22)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">61.79% <small>(76 / 123)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">./lib/</a> &#187; help.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">890</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">162</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+module.exports = help
+&nbsp;
+help.completion = <span class="fstat-no" title="function not covered" >function (opts, cb) {</span>
+<span class="cstat-no" title="statement not covered" >  if (opts.conf.argv.remain.length &gt; 2) <span class="cstat-no" title="statement not covered" >return cb(null, [])</span></span>
+<span class="cstat-no" title="statement not covered" >  getSections(cb)</span>
+}
+&nbsp;
+var path = require("path")
+  , spawn = require("./utils/spawn")
+  , npm = require("./npm.js")
+  , log = require("npmlog")
+  , opener = require("opener")
+  , glob = require("glob")
+&nbsp;
+function help (args, cb) {
+  npm.spinner.stop()
+  var argv = npm.config.get("argv").cooked
+&nbsp;
+  var argnum = 0
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (args.length === 2 &amp;&amp; ~~args[0]) {
+<span class="cstat-no" title="statement not covered" >    argnum = ~~args.shift()</span>
+  }
+&nbsp;
+  // npm help foo bar baz: search topics
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (args.length &gt; 1 &amp;&amp; args[0]) {
+<span class="cstat-no" title="statement not covered" >    return npm.commands["help-search"](args, argnum, cb)</span>
+  }
+&nbsp;
+  var section = npm.deref(args[0]) || args[0]
+&nbsp;
+  // npm help &lt;noargs&gt;:  show basic usage
+  if (!section) {
+    var valid = argv[0] === "help" ? 0 : 1
+    return npmUsage(valid, cb)
+  }
+&nbsp;
+&nbsp;
+  // npm &lt;cmd&gt; -h: show command usage
+  <span class="missing-if-branch" title="if path not taken" >I</span>if ( npm.config.get("usage")
+    &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >npm.commands[section]</span>
+    &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >npm.commands[section].usage</span>
+  ) {
+<span class="cstat-no" title="statement not covered" >    npm.config.set("loglevel", "silent")</span>
+<span class="cstat-no" title="statement not covered" >    log.level = "silent"</span>
+<span class="cstat-no" title="statement not covered" >    console.log(npm.commands[section].usage)</span>
+<span class="cstat-no" title="statement not covered" >    return cb()</span>
+  }
+&nbsp;
+  // npm apihelp &lt;section&gt;: Prefer section 3 over section 1
+  var apihelp = argv.length &amp;&amp; -1 !== argv[0].indexOf("api")
+  var pref = apihelp ? <span class="branch-0 cbranch-no" title="branch not covered" >[3, 1, 5, 7] </span>: [1, 3, 5, 7]
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (argnum)
+<span class="cstat-no" title="statement not covered" >    pref = [ argnum ].concat(pref.filter(<span class="fstat-no" title="function not covered" >function (n) {</span></span>
+<span class="cstat-no" title="statement not covered" >      return n !== argnum</span>
+    }))
+&nbsp;
+  // npm help &lt;section&gt;: Try to find the path
+  var manroot = path.resolve(__dirname, "..", "man")
+&nbsp;
+  // legacy
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (section === "global") <span class="cstat-no" title="statement not covered" >section = "folders"</span>
+  else <span class="missing-if-branch" title="if path not taken" >I</span>if (section === "json") <span class="cstat-no" title="statement not covered" >section = "package.json"</span>
+&nbsp;
+  // find either /section.n or /npm-section.n
+  // The glob is used in the glob.  The regexp is used much
+  // further down.  Globs and regexps are different
+  var compextglob = ".+(gz|bz2|lzma|[FYzZ]|xz)"
+  var compextre = "\\.(gz|bz2|lzma|[FYzZ]|xz)$"
+  var f = "+(npm-" + section + "|" + section + ").[0-9]?(" + compextglob + ")"
+  return glob(manroot + "/*/" + f, function (er, mans) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+&nbsp;
+    if (!mans.length) return npm.commands["help-search"](args, cb)
+&nbsp;
+    mans = mans.map(function (man) {
+      var ext = path.extname(man)
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (man.match(new RegExp(compextre))) <span class="cstat-no" title="statement not covered" >man = path.basename(man, ext)</span>
+&nbsp;
+      return man
+    })
+&nbsp;
+    viewMan(pickMan(mans, pref), cb)
+  })
+}
+&nbsp;
+function pickMan (mans, pref_) {
+  var nre = /([0-9]+)$/
+  var pref = {}
+  pref_.forEach(function (sect, i) {
+    pref[sect] = i
+  })
+  mans = mans.sort(function (a, b) {
+    var an = a.match(nre)[1]
+    var bn = b.match(nre)[1]
+    return an === bn ? (<span class="branch-0 cbranch-no" title="branch not covered" >a &gt; b ? -1 : 1)</span>
+         : pref[an] &lt; pref[bn] ? -1
+         : <span class="branch-1 cbranch-no" title="branch not covered" >1</span>
+  })
+  return mans[0]
+}
+&nbsp;
+function viewMan (man, cb) {
+  var nre = /([0-9]+)$/
+  var num = man.match(nre)[1]
+  var section = path.basename(man, "." + num)
+&nbsp;
+  // at this point, we know that the specified man page exists
+  var manpath = path.join(__dirname, "..", "man")
+    , env = {}
+  Object.keys(process.env).forEach(function (i) {
+    env[i] = process.env[i]
+  })
+  env.MANPATH = manpath
+  var viewer = npm.config.get("viewer")
+&nbsp;
+  var conf
+  switch (viewer) {
+    case "woman":
+      var a = ["-e", "(woman-find-file \"" + man + "\")"]
+      conf = { env: env, stdio: "inherit" }
+      var woman = spawn("emacsclient", a, conf)
+      woman.on("close", cb)
+      break
+&nbsp;
+<span class="branch-1 cbranch-no" title="branch not covered" >    case "browser":</span>
+<span class="cstat-no" title="statement not covered" >      opener(htmlMan(man), { command: npm.config.get("browser") }, cb)</span>
+<span class="cstat-no" title="statement not covered" >      break</span>
+&nbsp;
+<span class="branch-2 cbranch-no" title="branch not covered" >    default:</span>
+<span class="cstat-no" title="statement not covered" >      conf = { env: env, stdio: "inherit" }</span>
+<span class="cstat-no" title="statement not covered" >      var manProcess = spawn("man", [num, section], conf)</span>
+<span class="cstat-no" title="statement not covered" >      manProcess.on("close", cb)</span>
+<span class="cstat-no" title="statement not covered" >      break</span>
+  }
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function htmlMan (man) {</span>
+<span class="cstat-no" title="statement not covered" >  var sect = +man.match(/([0-9]+)$/)[1]</span>
+<span class="cstat-no" title="statement not covered" >  var f = path.basename(man).replace(/([0-9]+)$/, "html")</span>
+<span class="cstat-no" title="statement not covered" >  switch (sect) {</span>
+    case 1:
+<span class="cstat-no" title="statement not covered" >      sect = "cli"</span>
+<span class="cstat-no" title="statement not covered" >      break</span>
+    case 3:
+<span class="cstat-no" title="statement not covered" >      sect = "api"</span>
+<span class="cstat-no" title="statement not covered" >      break</span>
+    case 5:
+<span class="cstat-no" title="statement not covered" >      sect = "files"</span>
+<span class="cstat-no" title="statement not covered" >      break</span>
+    case 7:
+<span class="cstat-no" title="statement not covered" >      sect = "misc"</span>
+<span class="cstat-no" title="statement not covered" >      break</span>
+    default:
+<span class="cstat-no" title="statement not covered" >      throw new Error("invalid man section: " + sect)</span>
+  }
+<span class="cstat-no" title="statement not covered" >  return path.resolve(__dirname, "..", "html", "doc", sect, f)</span>
+}
+&nbsp;
+function npmUsage (valid, cb) {
+  npm.config.set("loglevel", "silent")
+  log.level = "silent"
+  console.log(
+    [ "\nUsage: npm &lt;command&gt;"
+      , ""
+      , "where &lt;command&gt; is one of:"
+      , npm.config.get("long") ? <span class="branch-0 cbranch-no" title="branch not covered" >usages()</span>
+        : "    " + wrap(Object.keys(npm.commands))
+      , ""
+      , "npm &lt;cmd&gt; -h     quick help on &lt;cmd&gt;"
+      , "npm -l           display full usage info"
+      , "npm faq          commonly asked questions"
+      , "npm help &lt;term&gt;  search for help on &lt;term&gt;"
+      , "npm help npm     involved overview"
+      , ""
+      , "Specify configs in the ini-formatted file:"
+      , "    " + npm.config.get("userconfig")
+      , "or on the command line via: npm &lt;command&gt; --key value"
+      , "Config info can be viewed via: npm help config"
+      , ""
+      , "npm@" + npm.version + " " + path.dirname(__dirname)
+      ].join("\n"))
+  cb(valid)
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function usages () {</span>
+  // return a string of &lt;cmd&gt;: &lt;usage&gt;
+<span class="cstat-no" title="statement not covered" >  var maxLen = 0</span>
+<span class="cstat-no" title="statement not covered" >  return Object.keys(npm.commands).filter(<span class="fstat-no" title="function not covered" >function (c) {</span></span>
+<span class="cstat-no" title="statement not covered" >    return c === npm.deref(c)</span>
+  }).reduce(<span class="fstat-no" title="function not covered" >function (set, c) {</span>
+<span class="cstat-no" title="statement not covered" >    set.push([c, npm.commands[c].usage || ""])</span>
+<span class="cstat-no" title="statement not covered" >    maxLen = Math.max(maxLen, c.length)</span>
+<span class="cstat-no" title="statement not covered" >    return set</span>
+  }, []).map(<span class="fstat-no" title="function not covered" >function (item) {</span>
+<span class="cstat-no" title="statement not covered" >    var c = item[0]</span>
+      , usage = item[1]
+<span class="cstat-no" title="statement not covered" >    return "\n    " + c + (new Array(maxLen - c.length + 2).join(" "))</span>
+         + (usage.split("\n")
+            .join("\n" + (new Array(maxLen + 6).join(" "))))
+  }).join("\n")
+}
+&nbsp;
+&nbsp;
+function wrap (arr) {
+  var out = [""]
+    , l = 0
+    , line
+&nbsp;
+  line = process.stdout.columns
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (!line)
+    line = 60
+  else
+<span class="cstat-no" title="statement not covered" >    line = Math.min(60, Math.max(line - 16, 24))</span>
+&nbsp;
+  arr.sort(function (a,b) { return a&lt;b?-1:1 })
+    .forEach(function (c) {
+      if (out[l].length + c.length + 2 &lt; line) {
+        out[l] += ", "+c
+      } else {
+        out[l++] += ","
+        out[l] = c
+      }
+    })
+  return out.join("\n    ").substr(2)
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function getSections (cb) {</span>
+<span class="cstat-no" title="statement not covered" >  var g = path.resolve(__dirname, "../man/man[0-9]/*.[0-9]")</span>
+<span class="cstat-no" title="statement not covered" >  glob(g, <span class="fstat-no" title="function not covered" >function (er, files) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (er)</span>
+<span class="cstat-no" title="statement not covered" >      return cb(er)</span>
+<span class="cstat-no" title="statement not covered" >    cb(null, Object.keys(files.reduce(<span class="fstat-no" title="function not covered" >function (acc, file) {</span></span>
+<span class="cstat-no" title="statement not covered" >      file = path.basename(file).replace(/\.[0-9]+$/, "")</span>
+<span class="cstat-no" title="statement not covered" >      file = file.replace(/^npm-/, "")</span>
+<span class="cstat-no" title="statement not covered" >      acc[file] = true</span>
+<span class="cstat-no" title="statement not covered" >      return acc</span>
+    }, { help: true })))
+  })
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 16 2015 16:39:59 GMT-0700 (PDT)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

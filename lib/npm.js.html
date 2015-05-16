@@ -1,0 +1,1443 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./lib/npm.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">./lib/npm.js</span></h1>
+    <h2>
+        Statements: <span class="metric">81.82% <small>(171 / 209)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">71.79% <small>(84 / 117)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">86.84% <small>(33 / 38)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">87.36% <small>(159 / 182)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">./lib/</a> &#187; npm.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467</td><td class="line-coverage"><span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">38868</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-yes">38868</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">174</span>
+<span class="cline-any cline-yes">174</span>
+<span class="cline-any cline-yes">174</span>
+<span class="cline-any cline-yes">173</span>
+<span class="cline-any cline-yes">173</span>
+<span class="cline-any cline-yes">173</span>
+<span class="cline-any cline-yes">173</span>
+<span class="cline-any cline-yes">173</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">478</span>
+<span class="cline-any cline-yes">478</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-yes">140304</span>
+<span class="cline-any cline-yes">905</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">905</span>
+<span class="cline-any cline-yes">905</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">905</span>
+<span class="cline-any cline-yes">905</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">577</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">577</span>
+<span class="cline-any cline-yes">887</span>
+<span class="cline-any cline-yes">887</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">887</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">887</span>
+<span class="cline-any cline-yes">887</span>
+<span class="cline-any cline-yes">337</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">608</span>
+<span class="cline-any cline-yes">51</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">557</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">608</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">887</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">577</span>
+<span class="cline-any cline-yes">1185</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">577</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">140304</span>
+<span class="cline-any cline-yes">10902</span>
+<span class="cline-any cline-yes">10902</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-yes">1320</span>
+<span class="cline-any cline-yes">1199</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1199</span>
+<span class="cline-any cline-yes">699</span>
+<span class="cline-any cline-yes">699</span>
+<span class="cline-any cline-yes">699</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-yes">358</span>
+<span class="cline-any cline-yes">358</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">358</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-yes">358</span>
+<span class="cline-any cline-yes">358</span>
+<span class="cline-any cline-yes">358</span>
+<span class="cline-any cline-yes">358</span>
+<span class="cline-any cline-yes">358</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-yes">358</span>
+<span class="cline-any cline-yes">358</span>
+<span class="cline-any cline-yes">358</span>
+<span class="cline-any cline-yes">358</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">358</span>
+<span class="cline-any cline-yes">358</span>
+<span class="cline-any cline-yes">358</span>
+<span class="cline-any cline-yes">358</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">349</span>
+<span class="cline-any cline-yes">349</span>
+<span class="cline-any cline-yes">349</span>
+<span class="cline-any cline-yes">349</span>
+<span class="cline-any cline-yes">349</span>
+<span class="cline-any cline-yes">349</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7669</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">664</span>
+<span class="cline-any cline-yes">534</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">793</span>
+<span class="cline-any cline-yes">793</span>
+<span class="cline-any cline-yes">793</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5236</span>
+<span class="cline-any cline-yes">4416</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1824</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-yes">1430</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-yes">2314</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">242</span>
+<span class="cline-any cline-yes">242</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-yes">140304</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">137460</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">;(function(){
+// windows: running "npm blah" in this folder will invoke WSH, not node.
+<span class="missing-if-branch" title="if path not taken" >I</span>if (typeof WScript !== "undefined") {
+<span class="cstat-no" title="statement not covered" >  WScript.echo("npm does not work when run\n"</span>
+              +"with the Windows Scripting Host\n\n"
+              +"'cd' to a different directory,\n"
+              +"or type 'npm.cmd &lt;args&gt;',\n"
+              +"or type 'node npm &lt;args&gt;'.")
+<span class="cstat-no" title="statement not covered" >  WScript.quit(1)</span>
+<span class="cstat-no" title="statement not covered" >  return</span>
+}
+&nbsp;
+&nbsp;
+var EventEmitter = require("events").EventEmitter
+  , npm = module.exports = new EventEmitter()
+  , npmconf = require("./config/core.js")
+  , log = require("npmlog")
+  , fs = require("graceful-fs")
+  , path = require("path")
+  , abbrev = require("abbrev")
+  , which = require("which")
+  , CachingRegClient = require("./cache/caching-client.js")
+  , charSpin = require("char-spinner")
+&nbsp;
+npm.config = {
+  loaded: false,
+  get: function() {
+    throw new Error('npm.load() required')
+  },
+  set: function() {
+    throw new Error('npm.load() required')
+  }
+}
+&nbsp;
+npm.commands = {}
+&nbsp;
+npm.rollbacks = []
+&nbsp;
+try {
+  // startup, ok to do this synchronously
+  var j = JSON.parse(fs.readFileSync(
+    path.join(__dirname, "../package.json"))+"")
+  npm.version = j.version
+} catch (ex) {
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    log.info("error reading version", ex)</span>
+  } catch (er) {}
+<span class="cstat-no" title="statement not covered" >  npm.version = ex</span>
+}
+&nbsp;
+var commandCache = {}
+  // short names for common things
+  , aliases = { "rm" : "uninstall"
+              , "r" : "uninstall"
+              , "un" : "uninstall"
+              , "unlink" : "uninstall"
+              , "remove" : "uninstall"
+              , "rb" : "rebuild"
+              , "list" : "ls"
+              , "la" : "ls"
+              , "ll" : "ls"
+              , "ln" : "link"
+              , "i" : "install"
+              , "isntall" : "install"
+              , "up" : "update"
+              , "upgrade" : "update"
+              , "c" : "config"
+              , "dist-tags" : "dist-tag"
+              , "info" : "view"
+              , "show" : "view"
+              , "find" : "search"
+              , "s" : "search"
+              , "se" : "search"
+              , "author" : "owner"
+              , "home" : "docs"
+              , "issues": "bugs"
+              , "unstar": "star" // same function
+              , "apihelp" : "help"
+              , "login": "adduser"
+              , "add-user": "adduser"
+              , "tst": "test"
+              , "t": "test"
+              , "find-dupes": "dedupe"
+              , "ddp": "dedupe"
+              , "v": "view"
+              , "verison": "version"
+              }
+&nbsp;
+  , aliasNames = Object.keys(aliases)
+  // these are filenames in .
+  , cmdList = [ "install"
+              , "uninstall"
+              , "cache"
+              , "config"
+              , "set"
+              , "get"
+              , "update"
+              , "outdated"
+              , "prune"
+              , "pack"
+              , "dedupe"
+&nbsp;
+              , "rebuild"
+              , "link"
+&nbsp;
+              , "publish"
+              , "star"
+              , "stars"
+              , "tag"
+              , "adduser"
+              , "logout"
+              , "unpublish"
+              , "owner"
+              , "access"
+              , "deprecate"
+              , "shrinkwrap"
+&nbsp;
+              , "help"
+              , "help-search"
+              , "ls"
+              , "search"
+              , "view"
+              , "init"
+              , "version"
+              , "edit"
+              , "explore"
+              , "docs"
+              , "repo"
+              , "bugs"
+              , "faq"
+              , "root"
+              , "prefix"
+              , "bin"
+              , "whoami"
+              , "dist-tag"
+&nbsp;
+              , "test"
+              , "stop"
+              , "start"
+              , "restart"
+              , "run-script"
+              , "completion"
+              ]
+  , plumbing = [ "build"
+               , "unbuild"
+               , "xmas"
+               , "substack"
+               , "visnup"
+               ]
+  , littleGuys = [ "isntall" ]
+  , fullList = cmdList.concat(aliasNames).filter(function (c) {
+      return plumbing.indexOf(c) === -1
+    })
+  , abbrevs = abbrev(fullList)
+&nbsp;
+// we have our reasons
+fullList = npm.fullList = fullList.filter(function (c) {
+  return littleGuys.indexOf(c) === -1
+})
+&nbsp;
+npm.spinner =
+  { int: null
+  , started: false
+  , start: function () {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (npm.spinner.int) <span class="cstat-no" title="statement not covered" >return</span>
+      var c = npm.config.get("spin")
+      if (!c) return
+      var stream = npm.config.get("logstream")
+      var opt = { tty: c !== "always", stream: stream }
+      opt.cleanup = !npm.spinner.started
+      npm.spinner.int = charSpin(opt)
+      npm.spinner.started = true
+    }
+  , stop: function () {
+      clearInterval(npm.spinner.int)
+      npm.spinner.int = null
+    }
+  }
+&nbsp;
+Object.keys(abbrevs).concat(plumbing).forEach(function addCommand (c) {
+  Object.defineProperty(npm.commands, c, { get : function () {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!loaded) <span class="cstat-no" title="statement not covered" >throw new Error(</span>
+      "Call npm.load(config, cb) before using this command.\n"+
+      "See the README.md or cli.js for example usage.")
+    var a = npm.deref(c)
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (c === "la" || c === "ll") {
+<span class="cstat-no" title="statement not covered" >      npm.config.set("long", true)</span>
+    }
+&nbsp;
+    npm.command = c
+    if (commandCache[a]) return commandCache[a]
+&nbsp;
+    var cmd = require(__dirname+"/"+a+".js")
+&nbsp;
+    commandCache[a] = function () {
+      var args = Array.prototype.slice.call(arguments, 0)
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof args[args.length - 1] !== "function") {
+<span class="cstat-no" title="statement not covered" >        args.push(defaultCb)</span>
+      }
+      if (args.length === 1) args.unshift([])
+&nbsp;
+      npm.registry.version = npm.version
+      if (!npm.registry.refer) {
+        npm.registry.refer = [a].concat(args[0]).map(function (arg) {
+          // exclude anything that might be a URL, path, or private module
+          // Those things will always have a slash in them somewhere
+          if (arg &amp;&amp; arg.match &amp;&amp; arg.match(/\/|\\/)) {
+            return "[REDACTED]"
+          } else {
+            return arg
+          }
+        }).filter(function (arg) {
+          return arg &amp;&amp; arg.match
+        }).join(" ")
+      }
+&nbsp;
+      cmd.apply(npm, args)
+    }
+&nbsp;
+    Object.keys(cmd).forEach(function (k) {
+      commandCache[a][k] = cmd[k]
+    })
+&nbsp;
+    return commandCache[a]
+  }, enumerable: fullList.indexOf(c) !== -1, configurable: true })
+&nbsp;
+  // make css-case commands callable via camelCase as well
+  if (c.match(/\-([a-z])/)) {
+    addCommand(c.replace(/\-([a-z])/g, function (a, b) {
+      return b.toUpperCase()
+    }))
+  }
+})
+&nbsp;
+<span class="fstat-no" title="function not covered" >function defaultCb (er, data) {</span>
+<span class="cstat-no" title="statement not covered" >  if (er) <span class="cstat-no" title="statement not covered" >console.error(er.stack || er.message)</span></span>
+  else <span class="cstat-no" title="statement not covered" >console.log(data)</span>
+}
+&nbsp;
+npm.deref = function (c) {
+  if (!c) return ""
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (c.match(/[A-Z]/)) <span class="cstat-no" title="statement not covered" >c = c.replace(/([A-Z])/g, <span class="fstat-no" title="function not covered" >function (m) {</span></span>
+<span class="cstat-no" title="statement not covered" >    return "-" + m.toLowerCase()</span>
+  })
+  if (plumbing.indexOf(c) !== -1) return c
+  var a = abbrevs[c]
+  if (aliases[a]) a = aliases[a]
+  return a
+}
+&nbsp;
+var loaded = false
+  , loading = false
+  , loadErr = null
+  , loadListeners = []
+&nbsp;
+function loadCb (er) {
+  loadListeners.forEach(function (cb) {
+    process.nextTick(cb.bind(npm, er, npm))
+  })
+  loadListeners.length = 0
+}
+&nbsp;
+npm.load = function (cli, cb_) {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!cb_ &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >typeof cli === "function")</span> <span class="cstat-no" title="statement not covered" >cb_ = cli , cli = {}</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!cb_) <span class="cstat-no" title="statement not covered" >cb_ = <span class="fstat-no" title="function not covered" >function () {</span>}</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!cli) <span class="cstat-no" title="statement not covered" >cli = {}</span>
+  loadListeners.push(cb_)
+  if (loaded || loadErr) return cb(loadErr)
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (loading) <span class="cstat-no" title="statement not covered" >return</span>
+  loading = true
+  var onload = true
+&nbsp;
+  function cb (er) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (loadErr) <span class="cstat-no" title="statement not covered" >return</span>
+    loadErr = er
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb_(er)</span>
+    if (npm.config.get("force")) {
+      log.warn("using --force", "I sure hope you know what you are doing.")
+    }
+    npm.config.loaded = true
+    loaded = true
+    loadCb(loadErr = er)
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (onload = onload &amp;&amp; npm.config.get("onload-script")) {
+<span class="cstat-no" title="statement not covered" >      require(onload)</span>
+<span class="cstat-no" title="statement not covered" >      onload = false</span>
+    }
+  }
+&nbsp;
+  log.pause()
+&nbsp;
+  load(npm, cli, cb)
+}
+&nbsp;
+function load (npm, cli, cb) {
+  which(process.argv[0], function (er, node) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!er &amp;&amp; node.toUpperCase() !== process.execPath.toUpperCase()) {
+<span class="cstat-no" title="statement not covered" >      log.verbose("node symlink", node)</span>
+<span class="cstat-no" title="statement not covered" >      process.execPath = node</span>
+<span class="cstat-no" title="statement not covered" >      process.installPrefix = path.resolve(node, "..", "..")</span>
+    }
+&nbsp;
+    // look up configs
+    //console.error("about to look up configs")
+&nbsp;
+    var builtin = path.resolve(__dirname, "..", "npmrc")
+    npmconf.load(cli, builtin, function (er, config) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er === config) <span class="cstat-no" title="statement not covered" >er = null</span>
+&nbsp;
+      npm.config = config
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+&nbsp;
+      // if the "project" config is not a filename, and we're
+      // not in global mode, then that means that it collided
+      // with either the default or effective userland config
+      if (!config.get("global")
+          &amp;&amp; config.sources.project
+          &amp;&amp; config.sources.project.type !== "ini") {
+        log.verbose("config"
+                   , "Skipping project config: %s. "
+                   + "(matches userconfig)"
+                   , config.localPrefix + "/.npmrc")
+      }
+&nbsp;
+      // Include npm-version and node-version in user-agent
+      var ua = config.get("user-agent") || <span class="branch-1 cbranch-no" title="branch not covered" >""</span>
+      ua = ua.replace(/\{node-version\}/gi, process.version)
+      ua = ua.replace(/\{npm-version\}/gi, npm.version)
+      ua = ua.replace(/\{platform\}/gi, process.platform)
+      ua = ua.replace(/\{arch\}/gi, process.arch)
+      config.set("user-agent", ua)
+&nbsp;
+      var color = config.get("color")
+&nbsp;
+      log.level = config.get("loglevel")
+      log.heading = config.get("heading") || <span class="branch-1 cbranch-no" title="branch not covered" >"npm"</span>
+      log.stream = config.get("logstream")
+&nbsp;
+      switch (color) {
+        case "always":
+          log.enableColor()
+          npm.color = true
+          break
+<span class="branch-1 cbranch-no" title="branch not covered" >        case false:</span>
+<span class="cstat-no" title="statement not covered" >          log.disableColor()</span>
+<span class="cstat-no" title="statement not covered" >          npm.color = false</span>
+<span class="cstat-no" title="statement not covered" >          break</span>
+        default:
+          var tty = require("tty")
+          <span class="missing-if-branch" title="if path not taken" >I</span>if (process.stdout.isTTY) <span class="cstat-no" title="statement not covered" >npm.color = true</span>
+          else <span class="missing-if-branch" title="if path not taken" >I</span>if (!tty.isatty) <span class="cstat-no" title="statement not covered" >npm.color = true</span>
+          else <span class="missing-if-branch" title="if path not taken" >I</span>if (tty.isatty(1)) <span class="cstat-no" title="statement not covered" >npm.color = true</span>
+          else npm.color = false
+          break
+      }
+&nbsp;
+      log.resume()
+&nbsp;
+      // at this point the configs are all set.
+      // go ahead and spin up the registry client.
+      npm.registry = new CachingRegClient(npm.config)
+&nbsp;
+      var umask = npm.config.get("umask")
+      npm.modes = { exec: 0777 &amp; (~umask)
+                  , file: 0666 &amp; (~umask)
+                  , umask: umask }
+&nbsp;
+      var gp = Object.getOwnPropertyDescriptor(config, "globalPrefix")
+      Object.defineProperty(npm, "globalPrefix", gp)
+&nbsp;
+      var lp = Object.getOwnPropertyDescriptor(config, "localPrefix")
+      Object.defineProperty(npm, "localPrefix", lp)
+&nbsp;
+      return cb(null, npm)
+    })
+  })
+}
+&nbsp;
+Object.defineProperty(npm, "prefix",
+  { get : function () {
+      return npm.config.get("global") ? npm.globalPrefix : npm.localPrefix
+    }
+  , set : <span class="fstat-no" title="function not covered" >function (r) {</span>
+<span class="cstat-no" title="statement not covered" >      var k = npm.config.get("global") ? "globalPrefix" : "localPrefix"</span>
+<span class="cstat-no" title="statement not covered" >      return npm[k] = r</span>
+    }
+  , enumerable : true
+  })
+&nbsp;
+Object.defineProperty(npm, "bin",
+  { get : function () {
+      if (npm.config.get("global")) return npm.globalBin
+      return path.resolve(npm.root, ".bin")
+    }
+  , enumerable : true
+  })
+&nbsp;
+Object.defineProperty(npm, "globalBin",
+  { get : function () {
+      var b = npm.globalPrefix
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (process.platform !== "win32") b = path.resolve(b, "bin")
+      return b
+    }
+  })
+&nbsp;
+Object.defineProperty(npm, "dir",
+  { get : function () {
+      if (npm.config.get("global")) return npm.globalDir
+      return path.resolve(npm.prefix, "node_modules")
+    }
+  , enumerable : true
+  })
+&nbsp;
+Object.defineProperty(npm, "globalDir",
+  { get : function () {
+      return (process.platform !== "win32")
+           ? path.resolve(npm.globalPrefix, "lib", "node_modules")
+           : <span class="branch-1 cbranch-no" title="branch not covered" >path.resolve(npm.globalPrefix, "node_modules")</span>
+    }
+  , enumerable : true
+  })
+&nbsp;
+Object.defineProperty(npm, "root",
+  { get : function () { return npm.dir } })
+&nbsp;
+Object.defineProperty(npm, "cache",
+  { get : function () { return npm.config.get("cache") }
+  , set : <span class="fstat-no" title="function not covered" >function (r) {</span> <span class="cstat-no" title="statement not covered" >return npm.config.set("cache", r) }</span>
+  , enumerable : true
+  })
+&nbsp;
+var tmpFolder
+var rand = require("crypto").randomBytes(4).toString("hex")
+Object.defineProperty(npm, "tmp",
+  { get : function () {
+      if (!tmpFolder) tmpFolder = "npm-" + process.pid + "-" + rand
+      return path.resolve(npm.config.get("tmp"), tmpFolder)
+    }
+  , enumerable : true
+  })
+&nbsp;
+// the better to repl you with
+Object.getOwnPropertyNames(npm.commands).forEach(function (n) {
+  if (npm.hasOwnProperty(n) || n === "config") return
+&nbsp;
+  Object.defineProperty(npm, n, { get: function () {
+    return function () {
+      var args = Array.prototype.slice.call(arguments, 0)
+        , cb = defaultCb
+&nbsp;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (args.length === 1 &amp;&amp; Array.isArray(args[0])) {
+<span class="cstat-no" title="statement not covered" >        args = args[0]</span>
+      }
+&nbsp;
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof args[args.length - 1] === "function") {
+        cb = args.pop()
+      }
+&nbsp;
+      npm.commands[n](args, cb)
+    }
+  }, enumerable: false, configurable: true })
+})
+&nbsp;
+if (require.main === module) {
+  require("../bin/npm-cli.js")
+}
+})()
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 16 2015 16:39:59 GMT-0700 (PDT)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

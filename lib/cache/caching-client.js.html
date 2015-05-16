@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./lib/cache/caching-client.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../prettify.css">
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">./lib/cache/caching-client.js</span></h1>
+    <h2>
+        Statements: <span class="metric">85.71% <small>(84 / 98)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">71.64% <small>(48 / 67)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">93.75% <small>(15 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">88.04% <small>(81 / 92)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">./lib/cache/</a> &#187; caching-client.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218</td><td class="line-coverage"><span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-yes">357</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">357</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">357</span>
+<span class="cline-any cline-yes">357</span>
+<span class="cline-any cline-yes">357</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-yes">238</span>
+<span class="cline-any cline-yes">238</span>
+<span class="cline-any cline-yes">236</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">236</span>
+<span class="cline-any cline-yes">236</span>
+<span class="cline-any cline-yes">41</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41</span>
+<span class="cline-any cline-yes">41</span>
+<span class="cline-any cline-yes">41</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">195</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-yes">239</span>
+<span class="cline-any cline-yes">237</span>
+<span class="cline-any cline-yes">235</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">233</span>
+<span class="cline-any cline-yes">233</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">233</span>
+<span class="cline-any cline-yes">233</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">233</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">228</span>
+<span class="cline-any cline-yes">228</span>
+<span class="cline-any cline-yes">228</span>
+<span class="cline-any cline-yes">72</span>
+<span class="cline-any cline-yes">72</span>
+<span class="cline-any cline-yes">72</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">72</span>
+<span class="cline-any cline-yes">72</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">72</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">156</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-yes">233</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">233</span>
+<span class="cline-any cline-yes">233</span>
+<span class="cline-any cline-yes">233</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">233</span>
+<span class="cline-any cline-yes">72</span>
+<span class="cline-any cline-yes">72</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">72</span>
+<span class="cline-any cline-yes">72</span>
+<span class="cline-any cline-yes">59</span>
+<span class="cline-any cline-yes">59</span>
+<span class="cline-any cline-yes">59</span>
+<span class="cline-any cline-yes">59</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">174</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">174</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">173</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">173</span>
+<span class="cline-any cline-yes">173</span>
+<span class="cline-any cline-yes">173</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">173</span>
+<span class="cline-any cline-yes">173</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">173</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">165</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-yes">165</span>
+<span class="cline-any cline-yes">165</span>
+<span class="cline-any cline-yes">165</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-yes">165</span>
+<span class="cline-any cline-yes">165</span>
+<span class="cline-any cline-yes">165</span>
+<span class="cline-any cline-yes">165</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">165</span>
+<span class="cline-any cline-yes">165</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">165</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">474</span>
+<span class="cline-any cline-yes">357</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">module.exports = CachingRegistryClient
+&nbsp;
+var path = require("path")
+  , fs = require("graceful-fs")
+  , url = require("url")
+  , assert = require("assert")
+  , inherits = require("util").inherits
+&nbsp;
+var RegistryClient = require("npm-registry-client")
+  , npm = require("../npm.js")
+  , log = require("npmlog")
+  , getCacheStat = require("./get-stat.js")
+  , cacheFile = require("npm-cache-filename")
+  , mkdirp = require("mkdirp")
+  , rimraf = require("rimraf")
+  , chownr = require("chownr")
+  , writeFile = require("write-file-atomic")
+&nbsp;
+function CachingRegistryClient (config) {
+  RegistryClient.call(this, adaptConfig(config))
+&nbsp;
+  this._mapToCache = cacheFile(config.get("cache"))
+&nbsp;
+  // swizzle in our custom cache invalidation logic
+  this._request = this.request
+  this.request  = this._invalidatingRequest
+  this.get      = get
+}
+inherits(CachingRegistryClient, RegistryClient)
+&nbsp;
+CachingRegistryClient.prototype._invalidatingRequest = function (uri, params, cb) {
+  var client = this
+  this._request.call(this, uri, params, function () {
+    var args = arguments
+&nbsp;
+    var method = params.method
+    if (method !== "HEAD" &amp;&amp; method !== "GET") {
+      var invalidated = client._mapToCache(uri)
+      // invalidate cache
+      //
+      // This is irrelevant for commands that do etag / last-modified caching,
+      // but ls and view also have a timed cache, so this keeps the user from
+      // thinking that it didn't work when it did.
+      // Note that failure is an acceptable option here, since the only
+      // result will be a stale cache for some helper commands.
+      log.verbose("request", "invalidating", invalidated, "on", method)
+      return rimraf(invalidated, function () {
+        cb.apply(undefined, args)
+      })
+    }
+&nbsp;
+    cb.apply(undefined, args)
+  })
+}
+&nbsp;
+function get (uri, params, cb) {
+  assert(typeof uri === "string", "must pass registry URI to get")
+  assert(params &amp;&amp; typeof params === "object", "must pass params to get")
+  assert(typeof cb === "function", "must pass callback to get")
+&nbsp;
+  var parsed = url.parse(uri)
+  assert(
+    parsed.protocol === "http:" || parsed.protocol === "https:",
+    "must have a URL that starts with http: or https:"
+  )
+&nbsp;
+  var cacheBase = cacheFile(npm.config.get("cache"))(uri)
+  var cachePath = path.join(cacheBase, ".cache.json")
+&nbsp;
+  // If the GET is part of a write operation (PUT or DELETE), then
+  // skip past the cache entirely, but still save the results.
+  if (uri.match(/\?write=true$/)) {
+    log.verbose("get", "GET as part of write; not caching result")
+    return get_.call(this, uri, cachePath, params, cb)
+  }
+&nbsp;
+  var client = this
+  fs.stat(cachePath, function (er, stat) {
+    if (!er) {
+      fs.readFile(cachePath, function (er, data) {
+        try {
+          data = JSON.parse(data)
+        }
+        catch (ex) {
+<span class="cstat-no" title="statement not covered" >          data = null</span>
+        }
+&nbsp;
+        params.stat = stat
+        params.data = data
+&nbsp;
+        get_.call(client, uri, cachePath, params, cb)
+      })
+    }
+    else {
+      get_.call(client, uri, cachePath, params, cb)
+    }
+  })
+}
+&nbsp;
+function get_ (uri, cachePath, params, cb) {
+  var staleOk = params.staleOk === undefined ? false : params.staleOk
+    , timeout = params.timeout === undefined ? -1 : params.timeout
+    , data    = params.data
+    , stat    = params.stat
+    , etag
+    , lastModified
+&nbsp;
+  timeout = Math.min(timeout, npm.config.get("cache-max") || <span class="branch-1 cbranch-no" title="branch not covered" >0)</span>
+  timeout = Math.max(timeout, npm.config.get("cache-min") || <span class="branch-1 cbranch-no" title="branch not covered" >-Infinity)</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (process.env.COMP_CWORD !== undefined &amp;&amp;
+<span class="branch-1 cbranch-no" title="branch not covered" >      process.env.COMP_LINE  !== undefined </span>&amp;&amp;
+<span class="branch-2 cbranch-no" title="branch not covered" >      process.env.COMP_POINT !== undefined)</span> {
+<span class="cstat-no" title="statement not covered" >    timeout = Math.max(timeout, 60000)</span>
+  }
+&nbsp;
+  if (data) {
+    if (data._etag) etag = data._etag
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (data._lastModified) <span class="cstat-no" title="statement not covered" >lastModified = data._lastModified</span>
+&nbsp;
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (stat &amp;&amp; timeout &amp;&amp; timeout &gt; 0) {
+      if ((Date.now() - stat.mtime.getTime())/1000 &lt; timeout) {
+        log.verbose("get", uri, "not expired, no request")
+        delete data._etag
+        delete data._lastModified
+        return cb(null, data, JSON.stringify(data), { statusCode : 304 })
+      }
+&nbsp;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (staleOk) {
+<span class="cstat-no" title="statement not covered" >        log.verbose("get", uri, "staleOk, background update")</span>
+<span class="cstat-no" title="statement not covered" >        delete data._etag</span>
+<span class="cstat-no" title="statement not covered" >        delete data._lastModified</span>
+<span class="cstat-no" title="statement not covered" >        process.nextTick(</span>
+          cb.bind(null, null, data, JSON.stringify(data), { statusCode : 304 } )
+        )
+<span class="cstat-no" title="statement not covered" >        cb = <span class="fstat-no" title="function not covered" >function () {</span>}</span>
+      }
+    }
+  }
+&nbsp;
+  var options = {
+    etag         : etag,
+    lastModified : lastModified,
+    follow       : params.follow,
+    auth         : params.auth
+  }
+  this.request(uri, options, function (er, remoteData, raw, response) {
+    // if we get an error talking to the registry, but we have it
+    // from the cache, then just pretend we got it.
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er &amp;&amp; cachePath &amp;&amp; data &amp;&amp; <span class="branch-3 cbranch-no" title="branch not covered" >!data.error)</span> {
+<span class="cstat-no" title="statement not covered" >      er = null</span>
+<span class="cstat-no" title="statement not covered" >      response = { statusCode: 304 }</span>
+    }
+&nbsp;
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (response) {
+      log.silly("get", "cb", [response.statusCode, response.headers])
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (response.statusCode === 304 &amp;&amp; (<span class="branch-1 cbranch-no" title="branch not covered" >etag </span>|| <span class="branch-2 cbranch-no" title="branch not covered" >lastModified)</span>) {
+<span class="cstat-no" title="statement not covered" >        remoteData = data</span>
+<span class="cstat-no" title="statement not covered" >        log.verbose(etag ? "etag" : "lastModified", uri+" from cache")</span>
+      }
+    }
+&nbsp;
+    data = remoteData
+    if (!data) er = er || <span class="branch-1 cbranch-no" title="branch not covered" >new Error("failed to fetch from registry: " + uri)</span>
+&nbsp;
+    if (er) return cb(er, data, raw, response)
+&nbsp;
+    saveToCache(cachePath, data, saved)
+&nbsp;
+    // just give the write the old college try.  if it fails, whatever.
+    function saved () {
+      delete data._etag
+      delete data._lastModified
+      cb(er, data, raw, response)
+    }
+&nbsp;
+    function saveToCache (cachePath, data, saved) {
+      log.verbose("get", "saving", data.name, "to", cachePath)
+      getCacheStat(function (er, st) {
+        mkdirp(path.dirname(cachePath), function (er, made) {
+          <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return saved()</span>
+&nbsp;
+          writeFile(cachePath, JSON.stringify(data), function (er) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return saved()</span>
+&nbsp;
+            chownr(made || cachePath, st.uid, st.gid, saved)
+          })
+        })
+      })
+    }
+  })
+}
+&nbsp;
+function adaptConfig (config) {
+  return {
+    proxy : {
+      http         : config.get("proxy"),
+      https        : config.get("https-proxy"),
+      localAddress : config.get("local-address")
+    },
+    ssl : {
+      certificate : config.get("cert"),
+      key         : config.get("key"),
+      ca          : config.get("ca"),
+      strict      : config.get("strict-ssl")
+    },
+    retry : {
+      retries    : config.get("fetch-retries"),
+      factor     : config.get("fetch-retry-factor"),
+      minTimeout : config.get("fetch-retry-mintimeout"),
+      maxTimeout : config.get("fetch-retry-maxtimeout")
+    },
+    userAgent  : config.get("user-agent"),
+    log        : log,
+    defaultTag : config.get("tag"),
+    couchToken : config.get("_token")
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 16 2015 16:39:59 GMT-0700 (PDT)</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

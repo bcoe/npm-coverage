@@ -1,0 +1,1179 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./lib/config/defaults.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../prettify.css">
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">./lib/config/defaults.js</span></h1>
+    <h2>
+        Statements: <span class="metric">71.79% <small>(56 / 78)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">61.82% <small>(34 / 55)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">83.33% <small>(10 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">76.06% <small>(54 / 71)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">./lib/config/</a> &#187; defaults.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-yes">659</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-yes">1312</span>
+<span class="cline-any cline-yes">1312</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-yes">363</span>
+<span class="cline-any cline-yes">363</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-yes">49</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-yes">824</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">364</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">364</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">364</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">364</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">364</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">364</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-yes">1449</span>
+<span class="cline-any cline-yes">2898</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">966</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1449</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// defaults, types, and shorthands.
+&nbsp;
+&nbsp;
+var path = require("path")
+  , url = require("url")
+  , Stream = require("stream").Stream
+  , semver = require("semver")
+  , stableFamily = semver.parse(process.version)
+  , nopt = require("nopt")
+  , os = require("os")
+  , osenv = require("osenv")
+  , umask = require("../utils/umask")
+&nbsp;
+var log
+try {
+  log = require("npmlog")
+} catch (er) {
+<span class="cstat-no" title="statement not covered" >  var util = require("util")</span>
+<span class="cstat-no" title="statement not covered" >  log = { warn: <span class="fstat-no" title="function not covered" >function (m) {</span></span>
+<span class="cstat-no" title="statement not covered" >    console.warn(m + " " + util.format.apply(util, [].slice.call(arguments, 1)))</span>
+  } }
+}
+&nbsp;
+exports.Umask = Umask
+<span class="fstat-no" title="function not covered" >function Umask () {</span>}
+function validateUmask (data, k, val) {
+  return umask.validate(data, k, val)
+}
+&nbsp;
+function validateSemver (data, k, val) {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!semver.valid(val)) <span class="cstat-no" title="statement not covered" >return false</span>
+  data[k] = semver.valid(val)
+}
+&nbsp;
+function validateStream (data, k, val) {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!(val instanceof Stream)) <span class="cstat-no" title="statement not covered" >return false</span>
+  data[k] = val
+}
+&nbsp;
+nopt.typeDefs.semver = { type: semver, validate: validateSemver }
+nopt.typeDefs.Stream = { type: Stream, validate: validateStream }
+nopt.typeDefs.Umask = { type: Umask, validate: validateUmask }
+&nbsp;
+nopt.invalidHandler = function (k, val, type) {
+  log.warn("invalid config", k + "=" + JSON.stringify(val))
+&nbsp;
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (Array.isArray(type)) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (type.indexOf(url) !== -1) <span class="cstat-no" title="statement not covered" >type = url</span>
+    else <span class="missing-if-branch" title="if path not taken" >I</span>if (type.indexOf(path) !== -1) <span class="cstat-no" title="statement not covered" >type = path</span>
+  }
+&nbsp;
+  switch (type) {
+    case Umask:
+<span class="cstat-no" title="statement not covered" >      log.warn("invalid config", "Must be umask, octal number in range 0000..0777")</span>
+<span class="cstat-no" title="statement not covered" >      break</span>
+    case url:
+<span class="cstat-no" title="statement not covered" >      log.warn("invalid config", "Must be a full url with 'http://'")</span>
+<span class="cstat-no" title="statement not covered" >      break</span>
+    case path:
+<span class="cstat-no" title="statement not covered" >      log.warn("invalid config", "Must be a valid filesystem path")</span>
+<span class="cstat-no" title="statement not covered" >      break</span>
+    case Number:
+<span class="cstat-no" title="statement not covered" >      log.warn("invalid config", "Must be a numeric value")</span>
+<span class="cstat-no" title="statement not covered" >      break</span>
+    case Stream:
+<span class="cstat-no" title="statement not covered" >      log.warn("invalid config", "Must be an instance of the Stream class")</span>
+<span class="cstat-no" title="statement not covered" >      break</span>
+  }
+}
+&nbsp;
+<span class="missing-if-branch" title="if path not taken" >I</span>if (!stableFamily || (+stableFamily.minor % 2)) <span class="cstat-no" title="statement not covered" >stableFamily = null</span>
+else stableFamily = stableFamily.major + "." + stableFamily.minor
+&nbsp;
+var defaults
+&nbsp;
+var temp = osenv.tmpdir()
+var home = osenv.home()
+&nbsp;
+var uidOrPid = process.getuid ? process.getuid() : <span class="branch-1 cbranch-no" title="branch not covered" >process.pid</span>
+&nbsp;
+if (home) process.env.HOME = home
+else home = path.resolve(temp, "npm-" + uidOrPid)
+&nbsp;
+var cacheExtra = process.platform === "win32" ? <span class="branch-0 cbranch-no" title="branch not covered" >"npm-cache" </span>: ".npm"
+var cacheRoot = process.platform === "win32" &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >process.env.APPDATA </span>|| home
+var cache = path.resolve(cacheRoot, cacheExtra)
+&nbsp;
+&nbsp;
+var globalPrefix
+Object.defineProperty(exports, "defaults", {get: function () {
+  if (defaults) return defaults
+&nbsp;
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (process.env.PREFIX) {
+<span class="cstat-no" title="statement not covered" >    globalPrefix = process.env.PREFIX</span>
+  } else <span class="missing-if-branch" title="if path not taken" >I</span>if (process.platform === "win32") {
+    // c:\node\node.exe --&gt; prefix=c:\node\
+<span class="cstat-no" title="statement not covered" >    globalPrefix = path.dirname(process.execPath)</span>
+  } else {
+    // /usr/local/bin/node --&gt; prefix=/usr/local
+    globalPrefix = path.dirname(path.dirname(process.execPath))
+&nbsp;
+    // destdir only is respected on Unix
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (process.env.DESTDIR) {
+<span class="cstat-no" title="statement not covered" >      globalPrefix = path.join(process.env.DESTDIR, globalPrefix)</span>
+    }
+  }
+&nbsp;
+  defaults = {
+    access : null
+    , "always-auth" : false
+&nbsp;
+    , "bin-links" : true
+    , browser : null
+&nbsp;
+    , ca: null
+    , cafile: null
+&nbsp;
+    , cache : cache
+&nbsp;
+    , "cache-lock-stale": 60000
+    , "cache-lock-retries": 10
+    , "cache-lock-wait": 10000
+&nbsp;
+    , "cache-max": Infinity
+    , "cache-min": 10
+&nbsp;
+    , cert: null
+&nbsp;
+    , color : true
+    , depth: Infinity
+    , description : true
+    , dev : false
+    , editor : osenv.editor()
+    , "engine-strict": false
+    , force : false
+&nbsp;
+    , "fetch-retries": 2
+    , "fetch-retry-factor": 10
+    , "fetch-retry-mintimeout": 10000
+    , "fetch-retry-maxtimeout": 60000
+&nbsp;
+    , git: "git"
+    , "git-tag-version": true
+&nbsp;
+    , global : false
+    , globalconfig : path.resolve(globalPrefix, "etc", "npmrc")
+    , group : process.platform === "win32" ? <span class="branch-0 cbranch-no" title="branch not covered" >0</span>
+            : process.env.SUDO_GID || (process.getgid &amp;&amp; process.getgid())
+    , heading: "npm"
+    , "if-present": false
+    , "ignore-scripts": false
+    , "init-module": path.resolve(home, ".npm-init.js")
+    , "init-author-name" : ""
+    , "init-author-email" : ""
+    , "init-author-url" : ""
+    , "init-version": "1.0.0"
+    , "init-license": "ISC"
+    , json: false
+    , key: null
+    , link: false
+    , "local-address" : undefined
+    , loglevel : "warn"
+    , logstream : process.stderr
+    , long : false
+    , message : "%s"
+    , "node-version" : process.version
+    , npat : false
+    , "onload-script" : false
+    , optional: true
+    , parseable : false
+    , prefix : globalPrefix
+    , production: process.env.NODE_ENV === "production"
+    , "proprietary-attribs": true
+    , proxy :  null
+    , "https-proxy" : null
+    , "user-agent" : "npm/{npm-version} "
+                     + "node/{node-version} "
+                     + "{platform} "
+                     + "{arch}"
+    , "rebuild-bundle" : true
+    , registry : "https://registry.npmjs.org/"
+    , rollback : true
+    , save : false
+    , "save-bundle": false
+    , "save-dev" : false
+    , "save-exact" : false
+    , "save-optional" : false
+    , "save-prefix": "^"
+    , scope : ""
+    , searchopts: ""
+    , searchexclude: null
+    , searchsort: "name"
+    , shell : osenv.shell()
+    , shrinkwrap: true
+    , "sign-git-tag": false
+    , spin: true
+    , "strict-ssl": true
+    , tag : "latest"
+    , "tag-version-prefix" : "v"
+    , tmp : temp
+    , unicode : true
+    , "unsafe-perm" : process.platform === "win32"
+                    || process.platform === "cygwin"
+                    || !( process.getuid &amp;&amp; process.setuid
+                       &amp;&amp; process.getgid &amp;&amp; process.setgid )
+                    || process.getuid() !== 0
+    , usage : false
+    , user : process.platform === "win32" ? <span class="branch-0 cbranch-no" title="branch not covered" >0 </span>: "nobody"
+    , userconfig : path.resolve(home, ".npmrc")
+    , umask: process.umask ? process.umask() : <span class="branch-1 cbranch-no" title="branch not covered" >umask.fromString("022")</span>
+    , version : false
+    , versions : false
+    , viewer: process.platform === "win32" ? <span class="branch-0 cbranch-no" title="branch not covered" >"browser" </span>: "man"
+&nbsp;
+    , _exit : true
+  }
+&nbsp;
+  return defaults
+}})
+&nbsp;
+exports.types =
+  { access : [null, "restricted", "public"]
+  , "always-auth" : Boolean
+  , "bin-links": Boolean
+  , browser : [null, String]
+  , ca: [null, String, Array]
+  , cafile : path
+  , cache : path
+  , "cache-lock-stale": Number
+  , "cache-lock-retries": Number
+  , "cache-lock-wait": Number
+  , "cache-max": Number
+  , "cache-min": Number
+  , cert: [null, String]
+  , color : ["always", Boolean]
+  , depth : Number
+  , description : Boolean
+  , dev : Boolean
+  , editor : String
+  , "engine-strict": Boolean
+  , force : Boolean
+  , "fetch-retries": Number
+  , "fetch-retry-factor": Number
+  , "fetch-retry-mintimeout": Number
+  , "fetch-retry-maxtimeout": Number
+  , git: String
+  , "git-tag-version": Boolean
+  , global : Boolean
+  , globalconfig : path
+  , group : [Number, String]
+  , "https-proxy" : [null, url]
+  , "user-agent" : String
+  , "heading": String
+  , "if-present": Boolean
+  , "ignore-scripts": Boolean
+  , "init-module": path
+  , "init-author-name" : String
+  , "init-author-email" : String
+  , "init-author-url" : ["", url]
+  , "init-license": String
+  , "init-version": semver
+  , json: Boolean
+  , key: [null, String]
+  , link: Boolean
+  // local-address must be listed as an IP for a local network interface
+  // must be IPv4 due to node bug
+  , "local-address" : getLocalAddresses()
+  , loglevel : ["silent", "error", "warn", "http", "info", "verbose", "silly"]
+  , logstream : Stream
+  , long : Boolean
+  , message: String
+  , "node-version" : [null, semver]
+  , npat : Boolean
+  , "onload-script" : [null, String]
+  , optional: Boolean
+  , parseable : Boolean
+  , prefix: path
+  , production: Boolean
+  , "proprietary-attribs": Boolean
+  , proxy : [null, false, url] // allow proxy to be disabled explicitly
+  , "rebuild-bundle" : Boolean
+  , registry : [null, url]
+  , rollback : Boolean
+  , save : Boolean
+  , "save-bundle": Boolean
+  , "save-dev" : Boolean
+  , "save-exact" : Boolean
+  , "save-optional" : Boolean
+  , "save-prefix": String
+  , scope : String
+  , searchopts : String
+  , searchexclude: [null, String]
+  , searchsort: [ "name", "-name"
+                , "description", "-description"
+                , "author", "-author"
+                , "date", "-date"
+                , "keywords", "-keywords" ]
+  , shell : String
+  , shrinkwrap: Boolean
+  , "sign-git-tag": Boolean
+  , spin: ["always", Boolean]
+  , "strict-ssl": Boolean
+  , tag : String
+  , tmp : path
+  , unicode : Boolean
+  , "unsafe-perm" : Boolean
+  , usage : Boolean
+  , user : [Number, String]
+  , userconfig : path
+  , umask: Umask
+  , version : Boolean
+  , "tag-version-prefix" : String
+  , versions : Boolean
+  , viewer: String
+  , _exit : Boolean
+  }
+&nbsp;
+function getLocalAddresses () {
+  var interfaces
+  // #8094: some environments require elevated permissions to enumerate
+  // interfaces, and synchronously throw EPERM when run without
+  // elevated privileges
+  try {
+    interfaces = os.networkInterfaces()
+  } catch (e) {
+<span class="cstat-no" title="statement not covered" >    interfaces = {}</span>
+  }
+&nbsp;
+  return Object.keys(interfaces).map(function (nic) {
+    return interfaces[nic].filter(function (addr) {
+      return addr.family === 'IPv4'
+    })
+    .map(function (addr) {
+      return addr.address
+    })
+  }).reduce(function (curr, next) {
+    return curr.concat(next)
+  }, []).concat(undefined)
+}
+&nbsp;
+exports.shorthands =
+  { s : ["--loglevel", "silent"]
+  , d : ["--loglevel", "info"]
+  , dd : ["--loglevel", "verbose"]
+  , ddd : ["--loglevel", "silly"]
+  , noreg : ["--no-registry"]
+  , N : ["--no-registry"]
+  , reg : ["--registry"]
+  , "no-reg" : ["--no-registry"]
+  , silent : ["--loglevel", "silent"]
+  , verbose : ["--loglevel", "verbose"]
+  , quiet: ["--loglevel", "warn"]
+  , q: ["--loglevel", "warn"]
+  , h : ["--usage"]
+  , H : ["--usage"]
+  , "?" : ["--usage"]
+  , help : ["--usage"]
+  , v : ["--version"]
+  , f : ["--force"]
+  , gangster : ["--force"]
+  , gangsta : ["--force"]
+  , desc : ["--description"]
+  , "no-desc" : ["--no-description"]
+  , "local" : ["--no-global"]
+  , l : ["--long"]
+  , m : ["--message"]
+  , p : ["--parseable"]
+  , porcelain : ["--parseable"]
+  , g : ["--global"]
+  , S : ["--save"]
+  , D : ["--save-dev"]
+  , E : ["--save-exact"]
+  , O : ["--save-optional"]
+  , y : ["--yes"]
+  , n : ["--no-yes"]
+  , B : ["--save-bundle"]
+  , C : ["--prefix"]
+  }
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 16 2015 16:39:59 GMT-0700 (PDT)</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

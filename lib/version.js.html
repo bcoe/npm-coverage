@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./lib/version.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">./lib/version.js</span></h1>
+    <h2>
+        Statements: <span class="metric">89.69% <small>(87 / 97)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">83.87% <small>(52 / 62)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(18 / 18)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">92.59% <small>(75 / 81)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">./lib/</a> &#187; version.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// npm version &lt;newver&gt;
+&nbsp;
+module.exports = version
+&nbsp;
+var semver = require("semver")
+  , path = require("path")
+  , fs = require("graceful-fs")
+  , writeFileAtomic = require("write-file-atomic")
+  , chain = require("slide").chain
+  , log = require("npmlog")
+  , npm = require("./npm.js")
+  , git = require("./utils/git.js")
+  , assert = require("assert")
+&nbsp;
+version.usage = "npm version [&lt;newversion&gt; | major | minor | patch | prerelease | preminor | premajor ]\n"
+              + "\n(run in package dir)\n"
+              + "'npm -v' or 'npm --version' to print npm version "
+              + "("+npm.version+")\n"
+              + "'npm view &lt;pkg&gt; version' to view a package's "
+              + "published version\n"
+              + "'npm ls' to inspect current package/dependency versions"
+&nbsp;
+function version (args, silent, cb_) {
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof cb_ !== "function") cb_ = silent, silent = false
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (args.length &gt; 1) <span class="cstat-no" title="statement not covered" >return cb_(version.usage)</span>
+&nbsp;
+  var packagePath = path.join(npm.localPrefix, "package.json")
+  fs.readFile(packagePath, function (er, data) {
+    function cb (er) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (!er &amp;&amp; !silent) console.log("v" + data.version)
+      cb_(er)
+    }
+&nbsp;
+    if (data) data = data.toString()
+    try {
+      data = JSON.parse(data)
+    }
+    catch (er) {
+      data = null
+    }
+&nbsp;
+    if (!args.length) return dump(data, cb_)
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) {
+<span class="cstat-no" title="statement not covered" >      log.error("version", "No package.json found")</span>
+<span class="cstat-no" title="statement not covered" >      return cb_(er)</span>
+    }
+&nbsp;
+    var newVersion = semver.valid(args[0])
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (!newVersion) newVersion = semver.inc(data.version, args[0])
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!newVersion) <span class="cstat-no" title="statement not covered" >return cb_(version.usage)</span>
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (data.version === newVersion) <span class="cstat-no" title="statement not covered" >return cb_(new Error("Version not changed"))</span>
+    data.version = newVersion
+&nbsp;
+    checkGit(function (er, hasGit) {
+      if (er) return cb_(er)
+&nbsp;
+      write(data, "package.json", function (er) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb_(er)</span>
+&nbsp;
+        updateShrinkwrap(newVersion, function (er, hasShrinkwrap) {
+          if (er || !hasGit) return cb(er)
+&nbsp;
+          commit(data.version, hasShrinkwrap, cb)
+        })
+      })
+    })
+  })
+}
+&nbsp;
+function updateShrinkwrap (newVersion, cb) {
+  fs.readFile(path.join(npm.localPrefix, "npm-shrinkwrap.json"), function (er, data) {
+    if (er &amp;&amp; er.code === "ENOENT") return cb(null, false)
+&nbsp;
+    try {
+      data = data.toString()
+      data = JSON.parse(data)
+    }
+    catch (er) {
+<span class="cstat-no" title="statement not covered" >      log.error("version", "Bad npm-shrinkwrap.json data")</span>
+<span class="cstat-no" title="statement not covered" >      return cb(er)</span>
+    }
+&nbsp;
+    data.version = newVersion
+    write(data, "npm-shrinkwrap.json", function (er) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er) {
+<span class="cstat-no" title="statement not covered" >        log.error("version", "Bad npm-shrinkwrap.json data")</span>
+<span class="cstat-no" title="statement not covered" >        return cb(er)</span>
+      }
+      cb(null, true)
+    })
+  })
+}
+&nbsp;
+function dump (data, cb) {
+  var v = {}
+&nbsp;
+  if (data &amp;&amp; data.name &amp;&amp; data.version) v[data.name] = data.version
+  v.npm = npm.version
+  Object.keys(process.versions).sort().forEach(function (k) {
+    v[k] = process.versions[k]
+  })
+&nbsp;
+  if (npm.config.get("json")) v = JSON.stringify(v, null, 2)
+&nbsp;
+  console.log(v)
+  cb()
+}
+&nbsp;
+function checkGit (cb) {
+  fs.stat(path.join(npm.localPrefix, ".git"), function (er, s) {
+    var doGit = !er &amp;&amp; s.isDirectory() &amp;&amp; npm.config.get("git-tag-version")
+    if (!doGit) {
+      if (er) log.verbose("version", "error checking for .git", er)
+      log.verbose("version", "not tagging in git")
+      return cb(null, false)
+    }
+&nbsp;
+    // check for git
+    git.whichAndExec(
+      [ "status", "--porcelain" ],
+      { env : process.env },
+      function (er, stdout) {
+        if (er &amp;&amp; er.code === "ENOGIT") {
+          log.warn(
+            "version",
+            "This is a Git checkout, but the git command was not found.",
+            "npm could not create a Git tag for this release!"
+          )
+          return cb(null, false)
+        }
+&nbsp;
+        var lines = stdout.trim().split("\n").filter(function (line) {
+          return line.trim() &amp;&amp; !line.match(/^\?\? /)
+        }).map(function (line) {
+          return line.trim()
+        })
+        if (lines.length) return cb(new Error(
+          "Git working directory not clean.\n"+lines.join("\n")
+        ))
+&nbsp;
+        cb(null, true)
+      }
+    )
+  })
+}
+&nbsp;
+function commit (version, hasShrinkwrap, cb) {
+  var options = { env : process.env }
+  var message = npm.config.get("message").replace(/%s/g, version)
+  var sign = npm.config.get("sign-git-tag")
+  var flag = sign ? <span class="branch-0 cbranch-no" title="branch not covered" >"-sm" </span>: "-am"
+  chain(
+    [
+      git.chainableExec([ "add", "package.json" ], options),
+      hasShrinkwrap &amp;&amp; git.chainableExec([ "add", "npm-shrinkwrap.json" ] , options),
+      git.chainableExec([ "commit", "-m", message ], options),
+      git.chainableExec([ "tag", npm.config.get("tag-version-prefix") + version, flag, message ], options)
+    ],
+    cb
+  )
+}
+&nbsp;
+function write (data, file, cb) {
+  assert(data &amp;&amp; typeof data === "object", "must pass data to version write")
+  assert(typeof file === "string", "must pass filename to write to version write")
+&nbsp;
+  log.verbose("version.write", "data", data, "to", file)
+  writeFileAtomic(
+    path.join(npm.localPrefix, file),
+    new Buffer(JSON.stringify(data, null, 2) + "\n"),
+    cb
+  )
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 16 2015 16:39:59 GMT-0700 (PDT)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

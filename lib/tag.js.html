@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./lib/tag.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">./lib/tag.js</span></h1>
+    <h2>
+        Statements: <span class="metric">61.11% <small>(11 / 18)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">53.85% <small>(7 / 13)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">50% <small>(1 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">68.75% <small>(11 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">./lib/</a> &#187; tag.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// turns out tagging isn't very complicated
+// all the smarts are in the couch.
+module.exports = tag
+tag.usage = "npm tag &lt;project&gt;@&lt;version&gt; [&lt;tag&gt;]"
+&nbsp;
+tag.completion = require("./unpublish.js").completion
+&nbsp;
+var npm = require("./npm.js")
+  , mapToRegistry = require("./utils/map-to-registry.js")
+  , npa = require("npm-package-arg")
+  , semver = require("semver")
+  , log = require("npmlog")
+&nbsp;
+function tag (args, cb) {
+  var thing = npa(args.shift() || <span class="branch-1 cbranch-no" title="branch not covered" >"")</span>
+    , project = thing.name
+    , version = thing.rawSpec
+    , t = args.shift() || <span class="branch-1 cbranch-no" title="branch not covered" >npm.config.get("tag")</span>
+&nbsp;
+  t = t.trim()
+&nbsp;
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!project || !version || !t) <span class="cstat-no" title="statement not covered" >return cb("Usage:\n"+tag.usage)</span>
+&nbsp;
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (semver.validRange(t)) {
+    var er = new Error("Tag name must not be a valid SemVer range: " + t)
+    return cb(er)
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  log.warn("tag", "This command is deprecated. Use `npm dist-tag` instead.")</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  mapToRegistry(project, npm.config, <span class="fstat-no" title="function not covered" >function (er, uri, auth) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var params = {</span>
+      version : version,
+      tag     : t,
+      auth    : auth
+    }
+<span class="cstat-no" title="statement not covered" >    npm.registry.tag(uri, params, cb)</span>
+  })
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 16 2015 16:39:59 GMT-0700 (PDT)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

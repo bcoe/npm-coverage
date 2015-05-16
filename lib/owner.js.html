@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./lib/owner.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./lib/owner.js</span></h1>
+    <h2>
+        Statements: <span class="metric">45.09% <small>(78 / 173)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">35.96% <small>(41 / 114)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">53.13% <small>(17 / 32)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">53.85% <small>(77 / 143)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">./lib/</a> &#187; owner.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255</td><td class="line-coverage"><span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">module.exports = owner
+&nbsp;
+owner.usage = "npm owner add &lt;username&gt; &lt;pkg&gt;"
+            + "\nnpm owner rm &lt;username&gt; &lt;pkg&gt;"
+            + "\nnpm owner ls &lt;pkg&gt;"
+&nbsp;
+var npm = require("./npm.js")
+  , log = require("npmlog")
+  , mapToRegistry = require("./utils/map-to-registry.js")
+  , readLocalPkg = require("./utils/read-local-package.js")
+&nbsp;
+owner.completion = <span class="fstat-no" title="function not covered" >function (opts, cb) {</span>
+<span class="cstat-no" title="statement not covered" >  var argv = opts.conf.argv.remain</span>
+<span class="cstat-no" title="statement not covered" >  if (argv.length &gt; 4) <span class="cstat-no" title="statement not covered" >return cb()</span></span>
+<span class="cstat-no" title="statement not covered" >  if (argv.length &lt;= 2) {</span>
+<span class="cstat-no" title="statement not covered" >    var subs = ["add", "rm"]</span>
+<span class="cstat-no" title="statement not covered" >    if (opts.partialWord === "l") <span class="cstat-no" title="statement not covered" >subs.push("ls")</span></span>
+    else <span class="cstat-no" title="statement not covered" >subs.push("ls", "list")</span>
+<span class="cstat-no" title="statement not covered" >    return cb(null, subs)</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  npm.commands.whoami([], true, <span class="fstat-no" title="function not covered" >function (er, username) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (er) <span class="cstat-no" title="statement not covered" >return cb()</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var un = encodeURIComponent(username)</span>
+<span class="cstat-no" title="statement not covered" >    var byUser, theUser</span>
+<span class="cstat-no" title="statement not covered" >    switch (argv[2]) {</span>
+      case "ls":
+        // FIXME: there used to be registry completion here, but it stopped
+        // making sense somewhere around 50,000 packages on the registry
+<span class="cstat-no" title="statement not covered" >        return cb()</span>
+&nbsp;
+      case "rm":
+<span class="cstat-no" title="statement not covered" >        if (argv.length &gt; 3) {</span>
+<span class="cstat-no" title="statement not covered" >          theUser = encodeURIComponent(argv[3])</span>
+<span class="cstat-no" title="statement not covered" >          byUser = "-/by-user/" + theUser + "|" + un</span>
+<span class="cstat-no" title="statement not covered" >          return mapToRegistry(byUser, npm.config, <span class="fstat-no" title="function not covered" >function (er, uri, auth) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            console.error(uri)</span>
+<span class="cstat-no" title="statement not covered" >            npm.registry.get(uri, { auth : auth }, <span class="fstat-no" title="function not covered" >function (er, d) {</span></span>
+<span class="cstat-no" title="statement not covered" >              if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span></span>
+              // return the intersection
+<span class="cstat-no" title="statement not covered" >              return cb(null, d[theUser].filter(<span class="fstat-no" title="function not covered" >function (p) {</span></span>
+                // kludge for server adminery.
+<span class="cstat-no" title="statement not covered" >                return un === "isaacs" || d[un].indexOf(p) === -1</span>
+              }))
+            })
+          })
+        }
+        // else fallthrough
+      case "add":
+<span class="cstat-no" title="statement not covered" >        if (argv.length &gt; 3) {</span>
+<span class="cstat-no" title="statement not covered" >          theUser = encodeURIComponent(argv[3])</span>
+<span class="cstat-no" title="statement not covered" >          byUser = "-/by-user/" + theUser + "|" + un</span>
+<span class="cstat-no" title="statement not covered" >          return mapToRegistry(byUser, npm.config, <span class="fstat-no" title="function not covered" >function (er, uri, auth) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            console.error(uri)</span>
+<span class="cstat-no" title="statement not covered" >            npm.registry.get(uri, { auth : auth }, <span class="fstat-no" title="function not covered" >function (er, d) {</span></span>
+<span class="cstat-no" title="statement not covered" >              console.error(uri, er || d)</span>
+              // return mine that they're not already on.
+<span class="cstat-no" title="statement not covered" >              if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span></span>
+<span class="cstat-no" title="statement not covered" >              var mine = d[un] || []</span>
+                , theirs = d[theUser] || []
+<span class="cstat-no" title="statement not covered" >              return cb(null, mine.filter(<span class="fstat-no" title="function not covered" >function (p) {</span></span>
+<span class="cstat-no" title="statement not covered" >                return theirs.indexOf(p) === -1</span>
+              }))
+            })
+          })
+        }
+        // just list all users who aren't me.
+<span class="cstat-no" title="statement not covered" >        return mapToRegistry("-/users", npm.config, <span class="fstat-no" title="function not covered" >function (er, uri, auth) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          npm.registry.get(uri, { auth : auth }, <span class="fstat-no" title="function not covered" >function (er, list) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (er) <span class="cstat-no" title="statement not covered" >return cb()</span></span>
+<span class="cstat-no" title="statement not covered" >            return cb(null, Object.keys(list).filter(<span class="fstat-no" title="function not covered" >function (n) {</span></span>
+<span class="cstat-no" title="statement not covered" >              return n !== un</span>
+            }))
+          })
+        })
+&nbsp;
+      default:
+<span class="cstat-no" title="statement not covered" >        return cb()</span>
+    }
+  })
+}
+&nbsp;
+function owner (args, cb) {
+  var action = args.shift()
+  switch (action) {
+    case "ls": case "list": return ls(args[0], cb)
+    case "add": return add(args[0], args[1], cb)
+    case "rm": case "remove": return rm(args[0], args[1], cb)
+<span class="branch-5 cbranch-no" title="branch not covered" >    default: <span class="cstat-no" title="statement not covered" >return unknown(action, cb)</span></span>
+  }
+}
+&nbsp;
+function ls (pkg, cb) {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!pkg) <span class="cstat-no" title="statement not covered" >return readLocalPkg(<span class="fstat-no" title="function not covered" >function (er, pkg) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span></span>
+<span class="cstat-no" title="statement not covered" >    if (!pkg) <span class="cstat-no" title="statement not covered" >return cb(owner.usage)</span></span>
+<span class="cstat-no" title="statement not covered" >    ls(pkg, cb)</span>
+  })
+&nbsp;
+  mapToRegistry(pkg, npm.config, function (er, uri, auth) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+&nbsp;
+    npm.registry.get(uri, { auth : auth }, function (er, data) {
+      var msg = ""
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er) {
+<span class="cstat-no" title="statement not covered" >        log.error("owner ls", "Couldn't get owner data", pkg)</span>
+<span class="cstat-no" title="statement not covered" >        return cb(er)</span>
+      }
+      var owners = data.maintainers
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (!owners || !owners.length) <span class="cstat-no" title="statement not covered" >msg = "admin party!"</span>
+      else msg = owners.map(function (o) {
+        return o.name + " &lt;" + o.email + "&gt;"
+      }).join("\n")
+      console.log(msg)
+      cb(er, owners)
+    })
+  })
+}
+&nbsp;
+function add (user, pkg, cb) {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!user) <span class="cstat-no" title="statement not covered" >return cb(owner.usage)</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!pkg) <span class="cstat-no" title="statement not covered" >return readLocalPkg(<span class="fstat-no" title="function not covered" >function (er, pkg) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span></span>
+<span class="cstat-no" title="statement not covered" >    if (!pkg) <span class="cstat-no" title="statement not covered" >return cb(new Error(owner.usage))</span></span>
+<span class="cstat-no" title="statement not covered" >    add(user, pkg, cb)</span>
+  })
+&nbsp;
+  log.verbose("owner add", "%s to %s", user, pkg)
+  mutate(pkg, user, function (u, owners) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!owners) <span class="cstat-no" title="statement not covered" >owners = []</span>
+    for (var i = 0, l = owners.length; i &lt; l; i ++) {
+      var o = owners[i]
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (o.name === u.name) {
+<span class="cstat-no" title="statement not covered" >        log.info( "owner add"</span>
+                , "Already a package owner: " + o.name + " &lt;" + o.email + "&gt;")
+<span class="cstat-no" title="statement not covered" >        return false</span>
+      }
+    }
+    owners.push(u)
+    return owners
+  }, cb)
+}
+&nbsp;
+function rm (user, pkg, cb) {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!pkg) <span class="cstat-no" title="statement not covered" >return readLocalPkg(<span class="fstat-no" title="function not covered" >function (er, pkg) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span></span>
+<span class="cstat-no" title="statement not covered" >    if (!pkg) <span class="cstat-no" title="statement not covered" >return cb(new Error(owner.usage))</span></span>
+<span class="cstat-no" title="statement not covered" >    rm(user, pkg, cb)</span>
+  })
+&nbsp;
+  log.verbose("owner rm", "%s from %s", user, pkg)
+  mutate(pkg, user, function (u, owners) {
+    var found = false
+      , m = owners.filter(function (o) {
+          var match = (o.name === user)
+          found = found || match
+          return !match
+        })
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!found) {
+<span class="cstat-no" title="statement not covered" >      log.info("owner rm", "Not a package owner: " + user)</span>
+<span class="cstat-no" title="statement not covered" >      return false</span>
+    }
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!m.length) <span class="cstat-no" title="statement not covered" >return new Error(</span>
+      "Cannot remove all owners of a package.  Add someone else first.")
+    return m
+  }, cb)
+}
+&nbsp;
+function mutate (pkg, user, mutation, cb) {
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (user) {
+    var byUser = "-/user/org.couchdb.user:" + user
+    mapToRegistry(byUser, npm.config, function (er, uri, auth) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+&nbsp;
+      npm.registry.get(uri, { auth : auth }, mutate_)
+    })
+  } else {
+<span class="cstat-no" title="statement not covered" >    mutate_(null, null)</span>
+  }
+&nbsp;
+  function mutate_ (er, u) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!er &amp;&amp; user &amp;&amp; (!u || u.error)) <span class="cstat-no" title="statement not covered" >er = new Error(</span>
+      "Couldn't get user data for " + user + ": " + JSON.stringify(u))
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) {
+<span class="cstat-no" title="statement not covered" >      log.error("owner mutate", "Error getting user data for %s", user)</span>
+<span class="cstat-no" title="statement not covered" >      return cb(er)</span>
+    }
+&nbsp;
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (u) u = { "name" : u.name, "email" : u.email }
+    mapToRegistry(pkg, npm.config, function (er, uri, auth) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+&nbsp;
+      npm.registry.get(uri, { auth : auth }, function (er, data) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (er) {
+<span class="cstat-no" title="statement not covered" >          log.error("owner mutate", "Error getting package data for %s", pkg)</span>
+<span class="cstat-no" title="statement not covered" >          return cb(er)</span>
+        }
+&nbsp;
+        // save the number of maintainers before mutation so that we can figure
+        // out if maintainers were added or removed
+        var beforeMutation = data.maintainers.length
+&nbsp;
+        var m = mutation(u, data.maintainers)
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!m) <span class="cstat-no" title="statement not covered" >return cb() </span>// handled
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (m instanceof Error) <span class="cstat-no" title="statement not covered" >return cb(m) </span>// error
+&nbsp;
+        data = {
+          _id : data._id,
+          _rev : data._rev,
+          maintainers : m
+        }
+        var dataPath = pkg.replace("/", "%2f") + "/-rev/" + data._rev
+        mapToRegistry(dataPath, npm.config, function (er, uri, auth) {
+          <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+&nbsp;
+          var params = {
+            method : "PUT",
+            body : data,
+            auth : auth
+          }
+          npm.registry.request(uri, params, function (er, data) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (!er &amp;&amp; data.error) {
+<span class="cstat-no" title="statement not covered" >              er = new Error("Failed to update package metadata: "+JSON.stringify(data))</span>
+            }
+&nbsp;
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (er) {
+<span class="cstat-no" title="statement not covered" >              log.error("owner mutate", "Failed to update package metadata")</span>
+            }
+            else if (m.length &gt; beforeMutation) {
+              console.log("+ %s (%s)", user, pkg)
+            }
+            else <span class="missing-if-branch" title="else path not taken" >E</span>if (m.length &lt; beforeMutation) {
+              console.log("- %s (%s)", user, pkg)
+            }
+&nbsp;
+            cb(er, data)
+          })
+        })
+      })
+    })
+  }
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function unknown (action, cb) {</span>
+<span class="cstat-no" title="statement not covered" >  cb("Usage: \n" + owner.usage)</span>
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 16 2015 16:39:59 GMT-0700 (PDT)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

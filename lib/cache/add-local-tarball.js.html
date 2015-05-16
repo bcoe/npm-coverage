@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./lib/cache/add-local-tarball.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../prettify.css">
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">./lib/cache/add-local-tarball.js</span></h1>
+    <h2>
+        Statements: <span class="metric">80.61% <small>(79 / 98)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">66.1% <small>(39 / 59)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">94.44% <small>(17 / 18)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">89.66% <small>(78 / 87)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">./lib/cache/</a> &#187; add-local-tarball.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181</td><td class="line-coverage"><span class="cline-any cline-yes">146</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">146</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145</span>
+<span class="cline-any cline-yes">220</span>
+<span class="cline-any cline-yes">220</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">220</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">220</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">212</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">141</span>
+<span class="cline-any cline-yes">141</span>
+<span class="cline-any cline-yes">139</span>
+<span class="cline-any cline-yes">139</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">141</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145</span>
+<span class="cline-any cline-yes">141</span>
+<span class="cline-any cline-yes">141</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">141</span>
+<span class="cline-any cline-yes">141</span>
+<span class="cline-any cline-yes">141</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">141</span>
+<span class="cline-any cline-yes">125</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">125</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145</span>
+<span class="cline-any cline-yes">139</span>
+<span class="cline-any cline-yes">139</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">139</span>
+<span class="cline-any cline-yes">139</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">139</span>
+<span class="cline-any cline-yes">139</span>
+<span class="cline-any cline-yes">139</span>
+<span class="cline-any cline-yes">139</span>
+<span class="cline-any cline-yes">139</span>
+<span class="cline-any cline-yes">139</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145</span>
+<span class="cline-any cline-yes">139</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">139</span>
+<span class="cline-any cline-yes">139</span>
+<span class="cline-any cline-yes">139</span>
+<span class="cline-any cline-yes">139</span>
+<span class="cline-any cline-yes">139</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145</span>
+<span class="cline-any cline-yes">139</span>
+<span class="cline-any cline-yes">139</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var mkdir = require("mkdirp")
+  , assert = require("assert")
+  , fs = require("graceful-fs")
+  , writeFileAtomic = require("write-file-atomic")
+  , path = require("path")
+  , sha = require("sha")
+  , npm = require("../npm.js")
+  , log = require("npmlog")
+  , tar = require("../utils/tar.js")
+  , pathIsInside = require("path-is-inside")
+  , getCacheStat = require("./get-stat.js")
+  , cachedPackageRoot = require("./cached-package-root.js")
+  , chownr = require("chownr")
+  , inflight = require("inflight")
+  , once = require("once")
+  , writeStream = require("fs-write-stream-atomic")
+  , randomBytes = require("crypto").pseudoRandomBytes // only need uniqueness
+&nbsp;
+module.exports = addLocalTarball
+&nbsp;
+function addLocalTarball (p, pkgData, shasum, cb) {
+  assert(typeof p === "string", "must have path")
+  assert(typeof cb === "function", "must have callback")
+&nbsp;
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!pkgData) <span class="cstat-no" title="statement not covered" >pkgData = {}</span>
+&nbsp;
+  // If we don't have a shasum yet, compute it.
+  if (!shasum) {
+    return sha.get(p, function (er, shasum) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+      log.silly("addLocalTarball", "shasum (computed)", shasum)
+      addLocalTarball(p, pkgData, shasum, cb)
+    })
+  }
+&nbsp;
+  if (pathIsInside(p, npm.cache)) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (path.basename(p) !== "package.tgz") {
+<span class="cstat-no" title="statement not covered" >      return cb(new Error("Not a valid cache tarball name: "+p))</span>
+    }
+    log.verbose("addLocalTarball", "adding from inside cache", p)
+    return addPlacedTarball(p, pkgData, shasum, cb)
+  }
+&nbsp;
+  addTmpTarball(p, pkgData, shasum, function (er, data) {
+    if (data) {
+      data._resolved = p
+      data._shasum = data._shasum || <span class="branch-1 cbranch-no" title="branch not covered" >shasum</span>
+    }
+    return cb(er, data)
+  })
+}
+&nbsp;
+function addPlacedTarball (p, pkgData, shasum, cb) {
+  assert(pkgData, "should have package data by now")
+  assert(typeof cb === "function", "cb function required")
+&nbsp;
+  getCacheStat(function (er, cs) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+    return addPlacedTarball_(p, pkgData, cs.uid, cs.gid, shasum, cb)
+  })
+}
+&nbsp;
+function addPlacedTarball_ (p, pkgData, uid, gid, resolvedSum, cb) {
+  var folder = path.join(cachedPackageRoot(pkgData), "package")
+&nbsp;
+  // First, make sure we have the shasum, if we don't already.
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!resolvedSum) {
+<span class="cstat-no" title="statement not covered" >    sha.get(p, <span class="fstat-no" title="function not covered" >function (er, shasum) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span></span>
+<span class="cstat-no" title="statement not covered" >      addPlacedTarball_(p, pkgData, uid, gid, shasum, cb)</span>
+    })
+<span class="cstat-no" title="statement not covered" >    return</span>
+  }
+&nbsp;
+  mkdir(folder, function (er) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+    var pj = path.join(folder, "package.json")
+    var json = JSON.stringify(pkgData, null, 2)
+    writeFileAtomic(pj, json, function (er) {
+      cb(er, pkgData)
+    })
+  })
+}
+&nbsp;
+function addTmpTarball (tgz, pkgData, shasum, cb) {
+  assert(typeof cb === "function", "must have callback function")
+  assert(shasum, "must have shasum by now")
+&nbsp;
+  cb = inflight("addTmpTarball:" + tgz, cb)
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!cb) <span class="cstat-no" title="statement not covered" >return log.verbose("addTmpTarball", tgz, "already in flight; not adding")</span>
+  log.verbose("addTmpTarball", tgz, "not in flight; adding")
+&nbsp;
+  // we already have the package info, so just move into place
+  if (pkgData &amp;&amp; pkgData.name &amp;&amp; pkgData.version) {
+    log.verbose(
+      "addTmpTarball",
+      "already have metadata; skipping unpack for",
+      pkgData.name + "@" + pkgData.version
+    )
+    return addTmpTarball_(tgz, pkgData, shasum, cb)
+  }
+&nbsp;
+  // This is a tarball we probably downloaded from the internet.  The shasum's
+  // already been checked, but we haven't ever had a peek inside, so we unpack
+  // it here just to make sure it is what it says it is.
+  //
+  // NOTE: we might not have any clue what we think it is, for example if the
+  // user just did `npm install ./foo.tgz`
+&nbsp;
+  // generate a unique filename
+  randomBytes(6, function (er, random) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+&nbsp;
+    var target = path.join(npm.tmp, "unpack-" + random.toString("hex"))
+    getCacheStat(function (er, cs) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+&nbsp;
+      log.verbose("addTmpTarball", "validating metadata from", tgz)
+      tar.unpack(tgz, target, null, null, cs.uid, cs.gid, function (er, data) {
+        if (er) return cb(er)
+&nbsp;
+        // check that this is what we expected.
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!data.name) {
+<span class="cstat-no" title="statement not covered" >          return cb(new Error("No name provided"))</span>
+        }
+        else <span class="missing-if-branch" title="if path not taken" >I</span>if (pkgData.name &amp;&amp; data.name !== pkgData.name) {
+<span class="cstat-no" title="statement not covered" >          return cb(new Error("Invalid Package: expected " + pkgData.name +</span>
+                              " but found " + data.name))
+        }
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!data.version) {
+<span class="cstat-no" title="statement not covered" >          return cb(new Error("No version provided"))</span>
+        }
+        else <span class="missing-if-branch" title="if path not taken" >I</span>if (pkgData.version &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >data.version !== pkgData.version)</span> {
+<span class="cstat-no" title="statement not covered" >          return cb(new Error("Invalid Package: expected " +</span>
+                              pkgData.name + "@" + pkgData.version +
+                              " but found " + data.name + "@" + data.version))
+        }
+&nbsp;
+        addTmpTarball_(tgz, data, shasum, cb)
+      })
+    })
+  })
+}
+&nbsp;
+function addTmpTarball_ (tgz, data, shasum, cb) {
+  assert(typeof cb === "function", "must have callback function")
+  cb = once(cb)
+&nbsp;
+  assert(data.name, "should have package name by now")
+  assert(data.version, "should have package version by now")
+&nbsp;
+  var root = cachedPackageRoot(data)
+  var pkg = path.resolve(root, "package")
+  var target = path.resolve(root, "package.tgz")
+  getCacheStat(function (er, cs) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+    mkdir(pkg, function (er, created) {
+&nbsp;
+      // chown starting from the first dir created by mkdirp,
+      // or the root dir, if none had to be created, so that
+      // we know that we get all the children.
+      function chown () {
+        chownr(created || root, cs.uid, cs.gid, done)
+      }
+&nbsp;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+      var read = fs.createReadStream(tgz)
+      var write = writeStream(target, { mode: npm.modes.file })
+      var fin = cs.uid &amp;&amp; cs.gid ? chown : <span class="branch-1 cbranch-no" title="branch not covered" >done</span>
+      read.on("error", cb).pipe(write).on("error", cb).on("close", fin)
+    })
+&nbsp;
+  })
+&nbsp;
+  function done() {
+    data._shasum = data._shasum || shasum
+    cb(null, data)
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 16 2015 16:39:59 GMT-0700 (PDT)</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./lib/whoami.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">./lib/whoami.js</span></h1>
+    <h2>
+        Statements: <span class="metric">73.33% <small>(22 / 30)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">55.56% <small>(10 / 18)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(2 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">76.92% <small>(20 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">./lib/</a> &#187; whoami.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48</td><td class="line-coverage"><span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var npm = require("./npm.js")
+&nbsp;
+module.exports = whoami
+&nbsp;
+whoami.usage = "npm whoami\n(just prints username according to given registry)"
+&nbsp;
+function whoami (args, silent, cb) {
+  // FIXME: need tighter checking on this, but is a breaking change
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof cb !== "function") {
+    cb = silent
+    silent = false
+  }
+&nbsp;
+  var registry = npm.config.get("registry")
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!registry) <span class="cstat-no" title="statement not covered" >return cb(new Error("no default registry set"))</span>
+&nbsp;
+  var auth = npm.config.getCredentialsByURI(registry)
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (auth) {
+    if (auth.username) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (!silent) console.log(auth.username)
+      return process.nextTick(cb.bind(this, null, auth.username))
+    }
+    else <span class="missing-if-branch" title="else path not taken" >E</span>if (auth.token) {
+      return npm.registry.whoami(registry, { auth : auth }, function (er, username) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!username) {
+<span class="cstat-no" title="statement not covered" >          var needNewSession = new Error(</span>
+            "Your auth token is no longer valid. Please log in again."
+          )
+<span class="cstat-no" title="statement not covered" >          needNewSession.code = 'ENEEDAUTH'</span>
+<span class="cstat-no" title="statement not covered" >          return cb(needNewSession)</span>
+        }
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (!silent) console.log(username)
+        cb(null, username)
+      })
+    }
+  }
+&nbsp;
+  // At this point, if they have a credentials object, it doesn't have a token
+  // or auth in it.  Probably just the default registry.
+<span class="cstat-no" title="statement not covered" >  var needAuth = new Error(</span>
+    "'npm whoami' requires you to be logged in."
+  )
+<span class="cstat-no" title="statement not covered" >  needAuth.code = 'ENEEDAUTH'</span>
+<span class="cstat-no" title="statement not covered" >  process.nextTick(cb.bind(this, needAuth))</span>
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 16 2015 16:39:59 GMT-0700 (PDT)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

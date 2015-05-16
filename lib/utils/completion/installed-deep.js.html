@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./lib/utils/completion/installed-deep.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./lib/utils/completion/installed-deep.js</span></h1>
+    <h2>
+        Statements: <span class="metric">18.75% <small>(6 / 32)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 22)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 8)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">21.43% <small>(6 / 28)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">./lib/utils/completion/</a> &#187; installed-deep.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</td><td class="line-coverage"><span class="cline-any cline-yes">50</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">50</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">50</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">50</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">50</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">50</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">module.exports = installedDeep
+&nbsp;
+var npm = require("../../npm.js")
+  , readInstalled = require("read-installed")
+&nbsp;
+<span class="fstat-no" title="function not covered" >function installedDeep (opts, cb) {</span>
+<span class="cstat-no" title="statement not covered" >  var local</span>
+    , global
+    , depth = npm.config.get("depth")
+    , opt = { depth: depth, dev: true }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (npm.config.get("global")) <span class="cstat-no" title="statement not covered" >local = [], next()</span></span>
+  else <span class="cstat-no" title="statement not covered" >readInstalled(npm.prefix, opt, <span class="fstat-no" title="function not covered" >function (er, data) {</span></span>
+<span class="cstat-no" title="statement not covered" >    local = getNames(data || {})</span>
+<span class="cstat-no" title="statement not covered" >    next()</span>
+  })
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  readInstalled(npm.config.get("prefix"), opt, <span class="fstat-no" title="function not covered" >function (er, data) {</span></span>
+<span class="cstat-no" title="statement not covered" >    global = getNames(data || {})</span>
+<span class="cstat-no" title="statement not covered" >    next()</span>
+  })
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function getNames_ (d, n) {</span>
+<span class="cstat-no" title="statement not covered" >    if (d.realName &amp;&amp; n) {</span>
+<span class="cstat-no" title="statement not covered" >      if (n[d.realName]) <span class="cstat-no" title="statement not covered" >return n</span></span>
+<span class="cstat-no" title="statement not covered" >      n[d.realName] = true</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (!n) <span class="cstat-no" title="statement not covered" >n = {}</span></span>
+<span class="cstat-no" title="statement not covered" >    Object.keys(d.dependencies || {}).forEach(<span class="fstat-no" title="function not covered" >function (dep) {</span></span>
+<span class="cstat-no" title="statement not covered" >      getNames_(d.dependencies[dep], n)</span>
+    })
+<span class="cstat-no" title="statement not covered" >    return n</span>
+  }
+<span class="fstat-no" title="function not covered" >  function getNames (d) {</span>
+<span class="cstat-no" title="statement not covered" >    return Object.keys(getNames_(d))</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function next () {</span>
+<span class="cstat-no" title="statement not covered" >    if (!local || !global) <span class="cstat-no" title="statement not covered" >return</span></span>
+<span class="cstat-no" title="statement not covered" >    if (!npm.config.get("global")) {</span>
+<span class="cstat-no" title="statement not covered" >      global = global.map(<span class="fstat-no" title="function not covered" >function (g) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return [g, "-g"]</span>
+      })
+    }
+<span class="cstat-no" title="statement not covered" >    var names = local.concat(global)</span>
+<span class="cstat-no" title="statement not covered" >    return cb(null, names)</span>
+  }
+&nbsp;
+}
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 16 2015 16:39:59 GMT-0700 (PDT)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

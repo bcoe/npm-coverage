@@ -1,0 +1,1512 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./lib/cache/add-remote-git.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../prettify.css">
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">./lib/cache/add-remote-git.js</span></h1>
+    <h2>
+        Statements: <span class="metric">82.53% <small>(222 / 269)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">67.5% <small>(81 / 120)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">95.65% <small>(44 / 46)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">86.72% <small>(209 / 241)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">./lib/cache/</a> &#187; add-remote-git.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490</td><td class="line-coverage"><span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25</span>
+<span class="cline-any cline-yes">25</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-yes">39</span>
+<span class="cline-any cline-yes">39</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">39</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">39</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">39</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15</span>
+<span class="cline-any cline-yes">15</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-yes">64</span>
+<span class="cline-any cline-yes">64</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">64</span>
+<span class="cline-any cline-yes">64</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">64</span>
+<span class="cline-any cline-yes">64</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">64</span>
+<span class="cline-any cline-yes">64</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">109</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-yes">20787</span>
+<span class="cline-any cline-yes">20787</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36</span>
+<span class="cline-any cline-yes">36</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35</span>
+<span class="cline-any cline-yes">35</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35</span>
+<span class="cline-any cline-yes">35</span>
+<span class="cline-any cline-yes">35</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-yes">503</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">503</span>
+<span class="cline-any cline-yes">503</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">208</span>
+<span class="cline-any cline-yes">208</span>
+<span class="cline-any cline-yes">208</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-yes">483</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-yes">503</span>
+<span class="cline-any cline-yes">503</span>
+<span class="cline-any cline-yes">503</span>
+<span class="cline-any cline-yes">503</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-yes">208</span>
+<span class="cline-any cline-yes">208</span>
+<span class="cline-any cline-yes">208</span>
+<span class="cline-any cline-yes">208</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var assert = require('assert')
+var crypto = require('crypto')
+var fs = require('graceful-fs')
+var path = require('path')
+var url = require('url')
+&nbsp;
+var chownr = require('chownr')
+var dezalgo = require('dezalgo')
+var hostedFromURL = require('hosted-git-info').fromUrl
+var inflight = require('inflight')
+var log = require('npmlog')
+var mkdir = require('mkdirp')
+var normalizeGitUrl = require('normalize-git-url')
+var npa = require('npm-package-arg')
+var realizePackageSpecifier = require('realize-package-specifier')
+&nbsp;
+var addLocal = require('./add-local.js')
+var getCacheStat = require('./get-stat.js')
+var git = require('../utils/git.js')
+var npm = require('../npm.js')
+var rm = require('../utils/gently-rm.js')
+&nbsp;
+var remotes = path.resolve(npm.config.get('cache'), '_git-remotes')
+var templates = path.join(remotes, '_templates')
+&nbsp;
+var VALID_VARIABLES = [
+  'GIT_ASKPASS',
+  'GIT_PROXY_COMMAND',
+  'GIT_SSH',
+  'GIT_SSL_CAINFO',
+  'GIT_SSL_NO_VERIFY'
+]
+&nbsp;
+module.exports = addRemoteGit
+function addRemoteGit (uri, _cb) {
+  assert(typeof uri === 'string', 'must have git URL')
+  assert(typeof _cb === 'function', 'must have callback')
+  var cb = dezalgo(_cb)
+&nbsp;
+  log.verbose('addRemoteGit', 'caching', uri)
+&nbsp;
+  // the URL comes in exactly as it was passed on the command line, or as
+  // normalized by normalize-package-data / read-package-json / read-installed,
+  // so figure out what to do with it using hosted-git-info
+  var parsed = hostedFromURL(uri)
+  if (parsed) {
+    // normalize GitHub syntax to org/repo (for now)
+    var from
+    if (parsed.type === 'github' &amp;&amp; parsed.default === 'shortcut') {
+      from = parsed.path()
+    } else {
+      from = parsed.toString()
+    }
+&nbsp;
+    log.verbose('addRemoteGit', from, 'is a repository hosted by', parsed.type)
+&nbsp;
+    // prefer explicit URLs to pushing everything through shortcuts
+    if (parsed.default !== 'shortcut') {
+      return tryClone(from, parsed.toString(), false, cb)
+    }
+&nbsp;
+    // try git:, then git+ssh:, then git+https: before failing
+    tryGitProto(from, parsed, cb)
+  } else {
+    // verify that this is a Git URL before continuing
+    parsed = npa(uri)
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (parsed.type !== 'git') {
+<span class="cstat-no" title="statement not covered" >      return cb(new Error(uri + 'is not a Git or GitHub URL'))</span>
+    }
+&nbsp;
+    tryClone(parsed.rawSpec, uri, false, cb)
+  }
+}
+&nbsp;
+function tryGitProto (from, hostedInfo, cb) {
+  var gitURL = hostedInfo.git()
+  if (!gitURL) return trySSH(from, hostedInfo, cb)
+&nbsp;
+  log.silly('tryGitProto', 'attempting to clone', gitURL)
+  tryClone(from, gitURL, true, function (er) {
+    if (er) return tryHTTPS(from, hostedInfo, cb)
+&nbsp;
+    cb.apply(this, arguments)
+  })
+}
+&nbsp;
+function tryHTTPS (from, hostedInfo, cb) {
+  var httpsURL = hostedInfo.https()
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!httpsURL) {
+<span class="cstat-no" title="statement not covered" >    return cb(new Error(from + ' can not be cloned via Git, SSH, or HTTPS'))</span>
+  }
+&nbsp;
+  log.silly('tryHTTPS', 'attempting to clone', httpsURL)
+  tryClone(from, httpsURL, true, function (er) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (er) return trySSH(from, hostedInfo, cb)
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    cb.apply(this, arguments)</span>
+  })
+}
+&nbsp;
+function trySSH (from, hostedInfo, cb) {
+  var sshURL = hostedInfo.ssh()
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!sshURL) <span class="cstat-no" title="statement not covered" >return tryHTTPS(from, hostedInfo, cb)</span>
+&nbsp;
+  log.silly('trySSH', 'attempting to clone', sshURL)
+  tryClone(from, sshURL, false, cb)
+}
+&nbsp;
+function tryClone (from, combinedURL, silent, cb) {
+  log.silly('tryClone', 'cloning', from, 'via', combinedURL)
+&nbsp;
+  var normalized = normalizeGitUrl(combinedURL)
+  var cloneURL = normalized.url
+  var treeish = normalized.branch
+&nbsp;
+  // ensure that similarly-named remotes don't collide
+  var repoID = cloneURL.replace(/[^a-zA-Z0-9]+/g, '-') + '-' +
+    crypto.createHash('sha1').update(combinedURL).digest('hex').slice(0, 8)
+  var cachedRemote = path.join(remotes, repoID)
+&nbsp;
+  cb = inflight(repoID, cb)
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!cb) {
+<span class="cstat-no" title="statement not covered" >    return log.verbose('tryClone', repoID, 'already in flight; waiting')</span>
+  }
+  log.verbose('tryClone', repoID, 'not in flight; caching')
+&nbsp;
+  // initialize the remotes cache with the correct perms
+  getGitDir(function (er) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+    fs.stat(cachedRemote, function (er, s) {
+      if (er) return mirrorRemote(from, cloneURL, treeish, cachedRemote, silent, finish)
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (!s.isDirectory()) <span class="cstat-no" title="statement not covered" >return resetRemote(from, cloneURL, treeish, cachedRemote, finish)</span>
+&nbsp;
+      validateExistingRemote(from, cloneURL, treeish, cachedRemote, finish)
+    })
+&nbsp;
+    // always set permissions on the cached remote
+    function finish (er, data) {
+      if (er) return cb(er, data)
+      addModeRecursive(cachedRemote, npm.modes.file, function (er) {
+        return cb(er, data)
+      })
+    }
+  })
+}
+&nbsp;
+// don't try too hard to hold on to a remote
+<span class="fstat-no" title="function not covered" >function resetRemote (from, cloneURL, treeish, cachedRemote, cb) {</span>
+<span class="cstat-no" title="statement not covered" >  log.info('resetRemote', 'resetting', cachedRemote, 'for', from)</span>
+<span class="cstat-no" title="statement not covered" >  rm(cachedRemote, <span class="fstat-no" title="function not covered" >function (er) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span></span>
+<span class="cstat-no" title="statement not covered" >    mirrorRemote(from, cloneURL, treeish, cachedRemote, false, cb)</span>
+  })
+}
+&nbsp;
+// reuse a cached remote when possible, but nuke it if it's in an
+// inconsistent state
+function validateExistingRemote (from, cloneURL, treeish, cachedRemote, cb) {
+  git.whichAndExec(
+    ['config', '--get', 'remote.origin.url'],
+    { cwd: cachedRemote, env: gitEnv() },
+    function (er, stdout, stderr) {
+      var originURL
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (stdout) {
+        originURL = stdout.trim()
+        log.silly('validateExistingRemote', from, 'remote.origin.url:', originURL)
+      }
+&nbsp;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (stderr) <span class="cstat-no" title="statement not covered" >stderr = stderr.trim()</span>
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (stderr || er) {
+<span class="cstat-no" title="statement not covered" >        log.warn('addRemoteGit', from, 'resetting remote', cachedRemote, 'because of error:', stderr || er)</span>
+<span class="cstat-no" title="statement not covered" >        return resetRemote(from, cloneURL, treeish, cachedRemote, cb)</span>
+      } else <span class="missing-if-branch" title="if path not taken" >I</span>if (cloneURL !== originURL) {
+<span class="cstat-no" title="statement not covered" >        log.warn(</span>
+          'addRemoteGit',
+          from,
+          'pre-existing cached repo', cachedRemote, 'points to', originURL, 'and not', cloneURL
+        )
+<span class="cstat-no" title="statement not covered" >        return resetRemote(from, cloneURL, treeish, cachedRemote, cb)</span>
+      }
+&nbsp;
+      log.verbose('validateExistingRemote', from, 'is updating existing cached remote', cachedRemote)
+      updateRemote(from, cloneURL, treeish, cachedRemote, cb)
+    }
+  )
+}
+&nbsp;
+// make a complete bare mirror of the remote repo
+// NOTE: npm uses a blank template directory to prevent weird inconsistencies
+// https://github.com/npm/npm/issues/5867
+function mirrorRemote (from, cloneURL, treeish, cachedRemote, silent, cb) {
+  mkdir(cachedRemote, function (er) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+&nbsp;
+    var args = [
+      'clone',
+      '--template=' + templates,
+      '--mirror',
+      cloneURL, cachedRemote
+    ]
+    git.whichAndExec(
+      ['clone', '--template=' + templates, '--mirror', cloneURL, cachedRemote],
+      { cwd: cachedRemote, env: gitEnv() },
+      function (er, stdout, stderr) {
+        if (er) {
+          var combined = (stdout + '\n' + stderr).trim()
+          var command = 'git ' + args.join(' ') + ':'
+          if (silent) {
+            log.verbose(command, combined)
+          } else {
+            log.error(command, combined)
+          }
+          return cb(er)
+        }
+        log.verbose('mirrorRemote', from, 'git clone ' + cloneURL, stdout.trim())
+        setPermissions(from, cloneURL, treeish, cachedRemote, cb)
+      }
+    )
+  })
+}
+&nbsp;
+function setPermissions (from, cloneURL, treeish, cachedRemote, cb) {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (process.platform === 'win32') {
+<span class="cstat-no" title="statement not covered" >    log.verbose('setPermissions', from, 'skipping chownr on Windows')</span>
+<span class="cstat-no" title="statement not covered" >    resolveHead(from, cloneURL, treeish, cachedRemote, cb)</span>
+  } else {
+    getGitDir(function (er, cs) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er) {
+<span class="cstat-no" title="statement not covered" >        log.error('setPermissions', from, 'could not get cache stat')</span>
+<span class="cstat-no" title="statement not covered" >        return cb(er)</span>
+      }
+&nbsp;
+      chownr(cachedRemote, cs.uid, cs.gid, function (er) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (er) {
+<span class="cstat-no" title="statement not covered" >          log.error(</span>
+            'setPermissions',
+            'Failed to change git repository ownership under npm cache for',
+            cachedRemote
+          )
+<span class="cstat-no" title="statement not covered" >          return cb(er)</span>
+        }
+&nbsp;
+        log.verbose('setPermissions', from, 'set permissions on', cachedRemote)
+        resolveHead(from, cloneURL, treeish, cachedRemote, cb)
+      })
+    })
+  }
+}
+&nbsp;
+// always fetch the origin, even right after mirroring, because this way
+// permissions will get set correctly
+function updateRemote (from, cloneURL, treeish, cachedRemote, cb) {
+  git.whichAndExec(
+    ['fetch', '-a', 'origin'],
+    { cwd: cachedRemote, env: gitEnv() },
+    function (er, stdout, stderr) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er) {
+<span class="cstat-no" title="statement not covered" >        var combined = (stdout + '\n' + stderr).trim()</span>
+<span class="cstat-no" title="statement not covered" >        log.error('git fetch -a origin (' + cloneURL + ')', combined)</span>
+<span class="cstat-no" title="statement not covered" >        return cb(er)</span>
+      }
+      log.verbose('updateRemote', 'git fetch -a origin (' + cloneURL + ')', stdout.trim())
+&nbsp;
+      setPermissions(from, cloneURL, treeish, cachedRemote, cb)
+    }
+  )
+}
+&nbsp;
+// branches and tags are both symbolic labels that can be attached to different
+// commits, so resolve the commit-ish to the current actual treeish the label
+// corresponds to
+//
+// important for shrinkwrap
+function resolveHead (from, cloneURL, treeish, cachedRemote, cb) {
+  log.verbose('resolveHead', from, 'original treeish:', treeish)
+  var args = ['rev-list', '-n1', treeish]
+  git.whichAndExec(
+    args,
+    { cwd: cachedRemote, env: gitEnv() },
+    function (er, stdout, stderr) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er) {
+<span class="cstat-no" title="statement not covered" >        log.error('git ' + args.join(' ') + ':', stderr)</span>
+<span class="cstat-no" title="statement not covered" >        return cb(er)</span>
+      }
+&nbsp;
+      var resolvedTreeish = stdout.trim()
+      log.silly('resolveHead', from, 'resolved treeish:', resolvedTreeish)
+&nbsp;
+      var resolvedURL = getResolved(cloneURL, resolvedTreeish)
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (!resolvedURL) {
+<span class="cstat-no" title="statement not covered" >        return cb(new Error(</span>
+          'unable to clone ' + from + ' because git clone string ' +
+            cloneURL + ' is in a form npm can\'t handle'
+        ))
+      }
+      log.verbose('resolveHead', from, 'resolved Git URL:', resolvedURL)
+&nbsp;
+      // generate a unique filename
+      var tmpdir = path.join(
+        npm.tmp,
+        'git-cache-' + crypto.pseudoRandomBytes(6).toString('hex'),
+        resolvedTreeish
+      )
+      log.silly('resolveHead', 'Git working directory:', tmpdir)
+&nbsp;
+      mkdir(tmpdir, function (er) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+&nbsp;
+        cloneResolved(from, resolvedURL, resolvedTreeish, cachedRemote, tmpdir, cb)
+      })
+    }
+  )
+}
+&nbsp;
+// make a clone from the mirrored cache so we have a temporary directory in
+// which we can check out the resolved treeish
+function cloneResolved (from, resolvedURL, resolvedTreeish, cachedRemote, tmpdir, cb) {
+  var args = ['clone', cachedRemote, tmpdir]
+  git.whichAndExec(
+    args,
+    { cwd: cachedRemote, env: gitEnv() },
+    function (er, stdout, stderr) {
+      stdout = (stdout + '\n' + stderr).trim()
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er) {
+<span class="cstat-no" title="statement not covered" >        log.error('git ' + args.join(' ') + ':', stderr)</span>
+<span class="cstat-no" title="statement not covered" >        return cb(er)</span>
+      }
+      log.verbose('cloneResolved', from, 'clone', stdout)
+&nbsp;
+      checkoutTreeish(from, resolvedURL, resolvedTreeish, tmpdir, cb)
+    }
+  )
+}
+&nbsp;
+// there is no safe way to do a one-step clone to a treeish that isn't
+// guaranteed to be a branch, so explicitly check out the treeish once it's
+// cloned
+function checkoutTreeish (from, resolvedURL, resolvedTreeish, tmpdir, cb) {
+  var args = ['checkout', resolvedTreeish]
+  git.whichAndExec(
+    args,
+    { cwd: tmpdir, env: gitEnv() },
+    function (er, stdout, stderr) {
+      stdout = (stdout + '\n' + stderr).trim()
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er) {
+<span class="cstat-no" title="statement not covered" >        log.error('git ' + args.join(' ') + ':', stderr)</span>
+<span class="cstat-no" title="statement not covered" >        return cb(er)</span>
+      }
+      log.verbose('checkoutTreeish', from, 'checkout', stdout)
+&nbsp;
+      // convince addLocal that the checkout is a local dependency
+      realizePackageSpecifier(tmpdir, function (er, spec) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (er) {
+<span class="cstat-no" title="statement not covered" >          log.error('addRemoteGit', 'Failed to map', tmpdir, 'to a package specifier')</span>
+<span class="cstat-no" title="statement not covered" >          return cb(er)</span>
+        }
+&nbsp;
+        // ensure pack logic is applied
+        // https://github.com/npm/npm/issues/6400
+        addLocal(spec, null, function (er, data) {
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (data) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (npm.config.get('save-exact')) {
+<span class="cstat-no" title="statement not covered" >              log.verbose('addRemoteGit', 'data._from:', resolvedURL, '(save-exact)')</span>
+<span class="cstat-no" title="statement not covered" >              data._from = resolvedURL</span>
+            } else {
+              log.verbose('addRemoteGit', 'data._from:', from)
+              data._from = from
+            }
+&nbsp;
+            log.verbose('addRemoteGit', 'data._resolved:', resolvedURL)
+            data._resolved = resolvedURL
+          }
+&nbsp;
+          cb(er, data)
+        })
+      })
+    }
+  )
+}
+&nbsp;
+function getGitDir (cb) {
+  getCacheStat(function (er, stats) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+&nbsp;
+    // We don't need global templates when cloning. Use an empty directory for
+    // the templates, creating it (and setting its permissions) if necessary.
+    mkdir(templates, function (er) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+&nbsp;
+      // Ensure that both the template and remotes directories have the correct
+      // permissions.
+      fs.chown(templates, stats.uid, stats.gid, function (er) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+&nbsp;
+        fs.chown(remotes, stats.uid, stats.gid, function (er) {
+          cb(er, stats)
+        })
+      })
+    })
+  })
+}
+&nbsp;
+var gitEnv_
+function gitEnv () {
+  // git responds to env vars in some weird ways in post-receive hooks
+  // so don't carry those along.
+  if (gitEnv_) return gitEnv_
+&nbsp;
+  // allow users to override npm's insistence on not prompting for
+  // passphrases, but default to just failing when credentials
+  // aren't available
+  gitEnv_ = { GIT_ASKPASS: 'echo' }
+&nbsp;
+  for (var k in process.env) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!~VALID_VARIABLES.indexOf(k) &amp;&amp; k.match(/^GIT/)) <span class="cstat-no" title="statement not covered" >continue</span>
+    gitEnv_[k] = process.env[k]
+  }
+  return gitEnv_
+}
+&nbsp;
+addRemoteGit.getResolved = getResolved
+function getResolved (uri, treeish) {
+  // normalize hosted-git-info clone URLs back into regular URLs
+  // this will only work on URLs that hosted-git-info recognizes
+  // https://github.com/npm/npm/issues/7961
+  var rehydrated = hostedFromURL(uri)
+  if (rehydrated) uri = rehydrated.toString()
+&nbsp;
+  var parsed = url.parse(uri)
+&nbsp;
+  // non-hosted SSH strings that are not URLs (git@whatever.com:foo.git) are
+  // no bueno
+  // https://github.com/npm/npm/issues/7961
+  if (!parsed.protocol) return
+&nbsp;
+  parsed.hash = treeish
+  if (!/^git[+:]/.test(parsed.protocol)) {
+    parsed.protocol = 'git+' + parsed.protocol
+  }
+&nbsp;
+  // node incorrectly sticks a / at the start of the path We know that the host
+  // won't change, so split and detect this
+  // https://github.com/npm/npm/issues/3224
+  var spo = uri.split(parsed.host)
+  var spr = url.format(parsed).split(parsed.host)
+  if (spo[1] &amp;&amp; spo[1].charAt(0) === ':' &amp;&amp; spr[1] &amp;&amp; spr[1].charAt(0) === '/') {
+    spr[1] = spr[1].slice(1)
+  }
+  return spr.join(parsed.host)
+}
+&nbsp;
+// similar to chmodr except it add permissions rather than overwriting them
+// adapted from https://github.com/isaacs/chmodr/blob/master/chmodr.js
+function addModeRecursive (cachedRemote, mode, cb) {
+  fs.readdir(cachedRemote, function (er, children) {
+    // Any error other than ENOTDIR means it's not readable, or doesn't exist.
+    // Give up.
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er &amp;&amp; er.code !== 'ENOTDIR') <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+    if (er || !children.length) return addMode(cachedRemote, mode, cb)
+&nbsp;
+    var len = children.length
+    var errState = null
+    children.forEach(function (child) {
+      addModeRecursive(path.resolve(cachedRemote, child), mode, then)
+    })
+&nbsp;
+    function then (er) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (errState) <span class="cstat-no" title="statement not covered" >return undefined</span>
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(errState = er)</span>
+      if (--len === 0) return addMode(cachedRemote, dirMode(mode), cb)
+    }
+  })
+}
+&nbsp;
+function addMode (cachedRemote, mode, cb) {
+  fs.stat(cachedRemote, function (er, stats) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+    mode = stats.mode | mode
+    fs.chmod(cachedRemote, mode, cb)
+  })
+}
+&nbsp;
+// taken from https://github.com/isaacs/chmodr/blob/master/chmodr.js
+function dirMode (mode) {
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (mode &amp; parseInt('0400', 8)) mode |= parseInt('0100', 8)
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (mode &amp; parseInt('040', 8)) mode |= parseInt('010', 8)
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (mode &amp; parseInt('04', 8)) mode |= parseInt('01', 8)
+  return mode
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 16 2015 16:39:59 GMT-0700 (PDT)</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

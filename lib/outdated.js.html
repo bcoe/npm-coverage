@@ -1,0 +1,1227 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./lib/outdated.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">./lib/outdated.js</span></h1>
+    <h2>
+        Statements: <span class="metric">85.93% <small>(171 / 199)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">77.98% <small>(131 / 168)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">94.29% <small>(33 / 35)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">91.48% <small>(161 / 176)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">./lib/</a> &#187; outdated.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">180</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">180</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">180</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">34</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">48</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">33</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">33</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">29</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">33</span>
+<span class="cline-any cline-yes">33</span>
+<span class="cline-any cline-yes">33</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28</span>
+<span class="cline-any cline-yes">28</span>
+<span class="cline-any cline-yes">28</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28</span>
+<span class="cline-any cline-yes">28</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25</span>
+<span class="cline-any cline-yes">25</span>
+<span class="cline-any cline-yes">25</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*
+&nbsp;
+npm outdated [pkg]
+&nbsp;
+Does the following:
+&nbsp;
+1. check for a new version of pkg
+&nbsp;
+If no packages are specified, then run for all installed
+packages.
+&nbsp;
+--parseable creates output like this:
+&lt;fullpath&gt;:&lt;name@wanted&gt;:&lt;name@installed&gt;:&lt;name@latest&gt;
+&nbsp;
+*/
+&nbsp;
+module.exports = outdated
+&nbsp;
+outdated.usage = "npm outdated [&lt;pkg&gt; [&lt;pkg&gt; ...]]"
+&nbsp;
+outdated.completion = require("./utils/completion/installed-deep.js")
+&nbsp;
+&nbsp;
+var path = require("path")
+  , readJson = require("read-package-json")
+  , cache = require("./cache.js")
+  , asyncMap = require("slide").asyncMap
+  , npm = require("./npm.js")
+  , url = require("url")
+  , color = require("ansicolors")
+  , styles = require("ansistyles")
+  , table = require("text-table")
+  , semver = require("semver")
+  , os = require("os")
+  , mapToRegistry = require("./utils/map-to-registry.js")
+  , npa = require("npm-package-arg")
+  , readInstalled = require("read-installed")
+  , long = npm.config.get("long")
+  , log = require("npmlog")
+&nbsp;
+function outdated (args, silent, cb) {
+  if (typeof cb !== "function") cb = silent, silent = false
+  var dir = path.resolve(npm.dir, "..")
+&nbsp;
+  // default depth for `outdated` is 0 (cf. `ls`)
+  if (npm.config.get("depth") === Infinity) npm.config.set("depth", 0)
+&nbsp;
+  outdated_(args, dir, {}, 0, function (er, list) {
+    if (!list) list = []
+    if (er || silent || list.length === 0) return cb(er, list)
+    if (npm.config.get("json")) {
+      console.log(makeJSON(list))
+    } else if (npm.config.get("parseable")) {
+      console.log(makeParseable(list))
+    } else {
+      var outList = list.map(makePretty)
+      var outHead = [ "Package"
+                    , "Current"
+                    , "Wanted"
+                    , "Latest"
+                    , "Location"
+                    ]
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (long) <span class="cstat-no" title="statement not covered" >outHead.push("Package Type")</span>
+      var outTable = [outHead].concat(outList)
+&nbsp;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (npm.color) {
+<span class="cstat-no" title="statement not covered" >        outTable[0] = outTable[0].map(<span class="fstat-no" title="function not covered" >function(heading) {</span></span>
+<span class="cstat-no" title="statement not covered" >          return styles.underline(heading)</span>
+        })
+      }
+&nbsp;
+      var tableOpts = { align: ["l", "r", "r", "r", "l"]
+                      , stringLength: function(s) { return ansiTrim(s).length }
+                      }
+      console.log(table(outTable, tableOpts))
+    }
+    cb(null, list)
+  })
+}
+&nbsp;
+// [[ dir, dep, has, want, latest, type ]]
+function makePretty (p) {
+  var dep = p[1]
+    , dir = path.resolve(p[0], "node_modules", dep)
+    , has = p[2]
+    , want = p[3]
+    , latest = p[4]
+    , type = p[6]
+&nbsp;
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (!npm.config.get("global")) {
+    dir = path.relative(process.cwd(), dir)
+  }
+&nbsp;
+  var columns = [ dep
+                , has || "MISSING"
+                , want
+                , latest
+                , dirToPrettyLocation(dir)
+                ]
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (long) <span class="cstat-no" title="statement not covered" >columns[5] = type</span>
+&nbsp;
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (npm.color) {
+<span class="cstat-no" title="statement not covered" >    columns[0] = color[has === want ? "yellow" : "red"](columns[0]) </span>// dep
+<span class="cstat-no" title="statement not covered" >    columns[2] = color.green(columns[2]) </span>// want
+<span class="cstat-no" title="statement not covered" >    columns[3] = color.magenta(columns[3]) </span>// latest
+<span class="cstat-no" title="statement not covered" >    columns[4] = color.brightBlack(columns[4]) </span>// dir
+<span class="cstat-no" title="statement not covered" >    if (long) <span class="cstat-no" title="statement not covered" >columns[5] = color.brightBlack(columns[5]) </span></span>// type
+  }
+&nbsp;
+  return columns
+}
+&nbsp;
+function ansiTrim (str) {
+  var r = new RegExp("\x1b(?:\\[(?:\\d+[ABCDEFGJKSTm]|\\d+;\\d+[Hfm]|" +
+        "\\d+;\\d+;\\d+m|6n|s|u|\\?25[lh])|\\w)", "g")
+  return str.replace(r, "")
+}
+&nbsp;
+function dirToPrettyLocation (dir) {
+  return dir.replace(/^node_modules[/\\]/, "")
+            .replace(/[[/\\]node_modules[/\\]/g, " &gt; ")
+}
+&nbsp;
+function makeParseable (list) {
+  return list.map(function (p) {
+&nbsp;
+    var dep = p[1]
+      , dir = path.resolve(p[0], "node_modules", dep)
+      , has = p[2]
+      , want = p[3]
+      , latest = p[4]
+      , type = p[6]
+&nbsp;
+    var out = [ dir
+           , dep + "@" + want
+           , (has ? (dep + "@" + has) : <span class="branch-1 cbranch-no" title="branch not covered" >"MISSING")</span>
+           , dep + "@" + latest
+           ]
+   if (long) out.push(type)
+&nbsp;
+   return out.join(":")
+  }).join(os.EOL)
+}
+&nbsp;
+function makeJSON (list) {
+  var out = {}
+  list.forEach(function (p) {
+    var dir = path.resolve(p[0], "node_modules", p[1])
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (!npm.config.get("global")) {
+      dir = path.relative(process.cwd(), dir)
+    }
+    out[p[1]] = { current: p[2]
+                , wanted: p[3]
+                , latest: p[4]
+                , location: dir
+                }
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (long) <span class="cstat-no" title="statement not covered" >out[p[1]].type = p[6]</span>
+  })
+  return JSON.stringify(out, null, 2)
+}
+&nbsp;
+function outdated_ (args, dir, parentHas, depth, cb) {
+  // get the deps from package.json, or {&lt;dir/node_modules/*&gt;:"*"}
+  // asyncMap over deps:
+  //   shouldHave = cache.add(dep, req).version
+  //   if has === shouldHave then
+  //     return outdated(args, dir/node_modules/dep, parentHas + has)
+  //   else if dep in args or args is empty
+  //     return [dir, dep, has, shouldHave]
+&nbsp;
+  if (depth &gt; npm.config.get("depth")) {
+    return cb(null, [])
+  }
+  var deps = null
+  var types = {}
+  readJson(path.resolve(dir, "package.json"), function (er, d) {
+    d = d || <span class="branch-1 cbranch-no" title="branch not covered" >{}</span>
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >er.code !== "ENOENT" </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >er.code !== "ENOTDIR")</span> <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+    deps = (er) ? <span class="branch-0 cbranch-no" title="branch not covered" >true </span>: (d.dependencies || {})
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (!er) {
+      Object.keys(deps).forEach(function (k) {
+        types[k] = "dependencies"
+      })
+    }
+&nbsp;
+    if (npm.config.get("save-dev")) {
+      deps = d.devDependencies || <span class="branch-1 cbranch-no" title="branch not covered" >{}</span>
+      Object.keys(deps).forEach(function (k) {
+        types[k] = "devDependencies"
+      })
+&nbsp;
+      return next()
+    }
+&nbsp;
+    if (npm.config.get("save")) {
+      // remove optional dependencies from dependencies during --save.
+      Object.keys(d.optionalDependencies || {}).forEach(function (k) {
+        delete deps[k]
+      })
+      return next()
+    }
+&nbsp;
+    if (npm.config.get("save-optional")) {
+      deps = d.optionalDependencies || <span class="branch-1 cbranch-no" title="branch not covered" >{}</span>
+      Object.keys(deps).forEach(function (k) {
+        types[k] = "optionalDependencies"
+      })
+      return next()
+    }
+&nbsp;
+    var doUpdate = npm.config.get("dev") ||
+                    (!npm.config.get("production") &amp;&amp;
+                    !Object.keys(parentHas).length &amp;&amp;
+                    !npm.config.get("global"))
+&nbsp;
+    if (!er &amp;&amp; d &amp;&amp; doUpdate) {
+      Object.keys(d.devDependencies || {}).forEach(function (k) {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (!(k in parentHas)) {
+          deps[k] = d.devDependencies[k]
+          types[k] = "devDependencies"
+        }
+      })
+    }
+    return next()
+  })
+&nbsp;
+  var has = null
+  readInstalled(path.resolve(dir), { dev : true }, function (er, data) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) {
+<span class="cstat-no" title="statement not covered" >      has = Object.create(parentHas)</span>
+<span class="cstat-no" title="statement not covered" >      return next()</span>
+    }
+    var pkgs = Object.keys(data.dependencies)
+    pkgs = pkgs.filter(function (p) {
+      return !p.match(/^[\._-]/)
+    })
+    asyncMap(pkgs, function (pkg, cb) {
+      var jsonFile = path.resolve(dir, "node_modules", pkg, "package.json")
+      readJson(jsonFile, function (er, d) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (er &amp;&amp; er.code !== "ENOENT" &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >er.code !== "ENOTDIR")</span> <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+        if (d &amp;&amp; d.name &amp;&amp; d.private) delete deps[d.name]
+        cb(null, er ? [] : [[d.name, d.version, d._from]])
+      })
+    }, function (er, pvs) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+      has = Object.create(parentHas)
+      pvs.forEach(function (pv) {
+        has[pv[0]] = {
+          version: pv[1],
+          from: pv[2]
+        }
+      })
+&nbsp;
+      next()
+    })
+  })
+&nbsp;
+  function next () {
+    if (!has || !deps) return
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (deps === true) {
+<span class="cstat-no" title="statement not covered" >      deps = Object.keys(has).reduce(<span class="fstat-no" title="function not covered" >function (l, r) {</span></span>
+<span class="cstat-no" title="statement not covered" >        l[r] = "latest"</span>
+<span class="cstat-no" title="statement not covered" >        return l</span>
+      }, {})
+    }
+&nbsp;
+    // now get what we should have, based on the dep.
+    // if has[dep] !== shouldHave[dep], then cb with the data
+    // otherwise dive into the folder
+    asyncMap(Object.keys(deps), function (dep, cb) {
+      if (!long) return shouldUpdate(args, dir, dep, has, deps[dep], depth, cb)
+&nbsp;
+      shouldUpdate(args, dir, dep, has, deps[dep], depth, cb, types[dep])
+    }, cb)
+  }
+}
+&nbsp;
+function shouldUpdate (args, dir, dep, has, req, depth, cb, type) {
+  // look up the most recent version.
+  // if that's what we already have, or if it's not on the args list,
+  // then dive into it.  Otherwise, cb() with the data.
+&nbsp;
+  // { version: , from: }
+  var curr = has[dep]
+&nbsp;
+  function skip (er) {
+    // show user that no viable version can be found
+    if (er) return cb(er)
+    outdated_( args
+             , path.resolve(dir, "node_modules", dep)
+             , has
+             , depth + 1
+             , cb )
+  }
+&nbsp;
+  function doIt (wanted, latest) {
+    if (!long) {
+      return cb(null, [[ dir, dep, curr &amp;&amp; curr.version, wanted, latest, req]])
+    }
+    cb(null, [[ dir, dep, curr &amp;&amp; curr.version, wanted, latest, req, type]])
+  }
+&nbsp;
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (args.length &amp;&amp; args.indexOf(dep) === -1) <span class="cstat-no" title="statement not covered" >return skip()</span>
+  var parsed = npa(dep + '@' + req)
+  if (parsed.type === "git" || (parsed.hosted &amp;&amp; parsed.hosted.type === "github")) {
+    return doIt("git", "git")
+  }
+&nbsp;
+  // search for the latest package
+  mapToRegistry(dep, npm.config, function (er, uri, auth) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+&nbsp;
+    npm.registry.get(uri, { auth : auth }, updateDeps)
+  })
+&nbsp;
+  function updateLocalDeps (latestRegistryVersion) {
+    readJson(path.resolve(parsed.spec, 'package.json'), function (er, localDependency) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb()</span>
+&nbsp;
+      var wanted = localDependency.version
+      var latest = localDependency.version
+&nbsp;
+      if (latestRegistryVersion) {
+        latest = latestRegistryVersion
+        if (semver.lt(wanted, latestRegistryVersion)) {
+          wanted = latestRegistryVersion
+          req = dep + '@' + latest
+        }
+      }
+&nbsp;
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (curr.version !== wanted) {
+        doIt(wanted, latest)
+      } else {
+<span class="cstat-no" title="statement not covered" >        skip()</span>
+      }
+    })
+  }
+&nbsp;
+  function updateDeps (er, d) {
+    if (er) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (parsed.type !== 'local') <span class="cstat-no" title="statement not covered" >return cb()</span>
+      return updateLocalDeps()
+    }
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!d || !d["dist-tags"] || !d.versions) <span class="cstat-no" title="statement not covered" >return cb()</span>
+    var l = d.versions[d["dist-tags"].latest]
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!l) <span class="cstat-no" title="statement not covered" >return cb()</span>
+&nbsp;
+    var r = req
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (d["dist-tags"][req])
+<span class="cstat-no" title="statement not covered" >      r = d["dist-tags"][req]</span>
+&nbsp;
+    if (semver.validRange(r, true)) {
+      // some kind of semver range.
+      // see if it's in the doc.
+      var vers = Object.keys(d.versions)
+      var v = semver.maxSatisfying(vers, r, true)
+      if (v) {
+        return onCacheAdd(null, d.versions[v])
+      }
+    }
+&nbsp;
+    // We didn't find the version in the doc.  See if cache can find it.
+    cache.add(dep, req, null, false, onCacheAdd)
+&nbsp;
+    function onCacheAdd(er, d) {
+      // if this fails, then it means we can't update this thing.
+      // it's probably a thing that isn't published.
+      if (er) {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (er.code &amp;&amp; er.code === "ETARGET") {
+          // no viable version found
+          return skip(er)
+        }
+<span class="cstat-no" title="statement not covered" >        return skip()</span>
+      }
+&nbsp;
+      // check that the url origin hasn't changed (#1727) and that
+      // there is no newer version available
+      var dFromUrl = d._from &amp;&amp; url.parse(d._from).protocol
+      var cFromUrl = curr &amp;&amp; curr.from &amp;&amp; url.parse(curr.from).protocol
+&nbsp;
+      if (!curr || dFromUrl &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >cFromUrl </span>&amp;&amp; <span class="branch-3 cbranch-no" title="branch not covered" >d._from !== curr.from</span>
+          || d.version !== curr.version
+          || d.version !== l.version) {
+        if (parsed.type === 'local') return updateLocalDeps(l.version)
+&nbsp;
+        doIt(d.version, l.version)
+      }
+      else {
+        skip()
+      }
+    }
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 16 2015 16:39:59 GMT-0700 (PDT)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

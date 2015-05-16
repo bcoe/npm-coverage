@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./lib/unpublish.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">./lib/unpublish.js</span></h1>
+    <h2>
+        Statements: <span class="metric">50.62% <small>(41 / 81)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">40.82% <small>(20 / 49)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">42.86% <small>(6 / 14)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">61.19% <small>(41 / 67)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">./lib/</a> &#187; unpublish.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+module.exports = unpublish
+&nbsp;
+var log = require("npmlog")
+var npm = require("./npm.js")
+var readJson = require("read-package-json")
+var path = require("path")
+var mapToRegistry = require("./utils/map-to-registry.js")
+var npa = require("npm-package-arg")
+var getPublishConfig = require("./utils/get-publish-config.js")
+&nbsp;
+unpublish.usage = "npm unpublish &lt;project&gt;[@&lt;version&gt;]"
+&nbsp;
+unpublish.completion = <span class="fstat-no" title="function not covered" >function (opts, cb) {</span>
+<span class="cstat-no" title="statement not covered" >  if (opts.conf.argv.remain.length &gt;= 3) <span class="cstat-no" title="statement not covered" >return cb()</span></span>
+<span class="cstat-no" title="statement not covered" >  npm.commands.whoami([], true, <span class="fstat-no" title="function not covered" >function (er, username) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (er) <span class="cstat-no" title="statement not covered" >return cb()</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var un = encodeURIComponent(username)</span>
+<span class="cstat-no" title="statement not covered" >    if (!un) <span class="cstat-no" title="statement not covered" >return cb()</span></span>
+<span class="cstat-no" title="statement not covered" >    var byUser = "-/by-user/" + un</span>
+<span class="cstat-no" title="statement not covered" >    mapToRegistry(byUser, npm.config, <span class="fstat-no" title="function not covered" >function (er, uri, auth) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      npm.registry.get(uri, { auth : auth }, <span class="fstat-no" title="function not covered" >function (er, pkgs) {</span></span>
+        // do a bit of filtering at this point, so that we don't need
+        // to fetch versions for more than one thing, but also don't
+        // accidentally a whole project.
+<span class="cstat-no" title="statement not covered" >        pkgs = pkgs[un]</span>
+<span class="cstat-no" title="statement not covered" >        if (!pkgs || !pkgs.length) <span class="cstat-no" title="statement not covered" >return cb()</span></span>
+<span class="cstat-no" title="statement not covered" >        var pp = npa(opts.partialWord).name</span>
+<span class="cstat-no" title="statement not covered" >        pkgs = pkgs.filter(<span class="fstat-no" title="function not covered" >function (p) {</span></span>
+<span class="cstat-no" title="statement not covered" >          return p.indexOf(pp) === 0</span>
+        })
+<span class="cstat-no" title="statement not covered" >        if (pkgs.length &gt; 1) <span class="cstat-no" title="statement not covered" >return cb(null, pkgs)</span></span>
+<span class="cstat-no" title="statement not covered" >        mapToRegistry(pkgs[0], npm.config, <span class="fstat-no" title="function not covered" >function (er, uri, auth) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          npm.registry.get(uri, { auth : auth }, <span class="fstat-no" title="function not covered" >function (er, d) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span></span>
+<span class="cstat-no" title="statement not covered" >            var vers = Object.keys(d.versions)</span>
+<span class="cstat-no" title="statement not covered" >            if (!vers.length) <span class="cstat-no" title="statement not covered" >return cb(null, pkgs)</span></span>
+<span class="cstat-no" title="statement not covered" >            return cb(null, vers.map(<span class="fstat-no" title="function not covered" >function (v) {</span></span>
+<span class="cstat-no" title="statement not covered" >              return pkgs[0] + "@" + v</span>
+            }))
+          })
+        })
+      })
+    })
+  })
+}
+&nbsp;
+function unpublish (args, cb) {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (args.length &gt; 1) <span class="cstat-no" title="statement not covered" >return cb(unpublish.usage)</span>
+&nbsp;
+  var thing = args.length ? npa(args[0]) : {}
+    , project = thing.name
+    , version = thing.rawSpec
+&nbsp;
+  log.silly("unpublish", "args[0]", args[0])
+  log.silly("unpublish", "thing", thing)
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!version &amp;&amp; !npm.config.get("force")) {
+<span class="cstat-no" title="statement not covered" >    return cb("Refusing to delete entire project.\n"</span>
+             + "Run with --force to do this.\n"
+             + unpublish.usage)
+  }
+&nbsp;
+  if (!project || path.resolve(project) === npm.localPrefix) {
+    // if there's a package.json in the current folder, then
+    // read the package name and version out of that.
+    var cwdJson = path.join(npm.localPrefix, "package.json")
+    return readJson(cwdJson, function (er, data) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >er.code !== "ENOENT" </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >er.code !== "ENOTDIR")</span> <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb("Usage:\n" + unpublish.usage)</span>
+      log.verbose('unpublish', data)
+      gotProject(data.name, data.version, data.publishConfig, cb)
+    })
+  }
+  return gotProject(project, version, cb)
+}
+&nbsp;
+function gotProject (project, version, publishConfig, cb_) {
+  if (typeof cb_ !== 'function') {
+    cb_ = publishConfig
+    publishConfig = null
+  }
+&nbsp;
+  function cb (er) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb_(er)</span>
+    console.log("- " + project + (version ? "@" + version : ""))
+    cb_()
+  }
+&nbsp;
+  var mappedConfig = getPublishConfig(publishConfig, npm.config, npm.registry)
+  var config = mappedConfig.config
+  var registry = mappedConfig.client
+&nbsp;
+  // remove from the cache first
+  npm.commands.cache(["clean", project, version], function (er) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) {
+<span class="cstat-no" title="statement not covered" >      log.error("unpublish", "Failed to clean cache")</span>
+<span class="cstat-no" title="statement not covered" >      return cb(er)</span>
+    }
+&nbsp;
+    mapToRegistry(project, config, function (er, uri, auth) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+&nbsp;
+      var params = {
+        version: version,
+        auth: auth
+      }
+      registry.unpublish(uri, params, cb)
+    })
+  })
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 16 2015 16:39:59 GMT-0700 (PDT)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

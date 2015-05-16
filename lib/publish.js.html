@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./lib/publish.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">./lib/publish.js</span></h1>
+    <h2>
+        Statements: <span class="metric">80.28% <small>(57 / 71)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">58.93% <small>(33 / 56)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">77.78% <small>(7 / 9)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">93.22% <small>(55 / 59)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">./lib/</a> &#187; publish.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+module.exports = publish
+&nbsp;
+var npm = require("./npm.js")
+  , log = require("npmlog")
+  , path = require("path")
+  , readJson = require("read-package-json")
+  , lifecycle = require("./utils/lifecycle.js")
+  , chain = require("slide").chain
+  , mapToRegistry = require("./utils/map-to-registry.js")
+  , cachedPackageRoot = require("./cache/cached-package-root.js")
+  , createReadStream = require("graceful-fs").createReadStream
+  , npa = require("npm-package-arg")
+  , semver = require('semver')
+  , getPublishConfig = require("./utils/get-publish-config.js")
+&nbsp;
+publish.usage = "npm publish &lt;tarball&gt; [--tag &lt;tagname&gt;]"
+              + "\nnpm publish &lt;folder&gt; [--tag &lt;tagname&gt;]"
+              + "\n\nPublishes '.' if no argument supplied"
+              + "\n\nSets tag `latest` if no --tag specified"
+&nbsp;
+publish.completion = <span class="fstat-no" title="function not covered" >function (opts, cb) {</span>
+  // publish can complete to a folder with a package.json
+  // or a tarball, or a tarball url.
+  // for now, not yet implemented.
+<span class="cstat-no" title="statement not covered" >  return cb()</span>
+}
+&nbsp;
+function publish (args, isRetry, cb) {
+  if (typeof cb !== "function") {
+    cb = isRetry
+    isRetry = false
+  }
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (args.length === 0) args = ["."]
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (args.length !== 1) <span class="cstat-no" title="statement not covered" >return cb(publish.usage)</span>
+&nbsp;
+  log.verbose("publish", args)
+&nbsp;
+  var t = npm.config.get('tag').trim()
+  if (semver.validRange(t)) {
+    var er = new Error("Tag name must not be a valid SemVer range: " + t)
+    return cb(er)
+  }
+&nbsp;
+  var arg = args[0]
+  // if it's a local folder, then run the prepublish there, first.
+  readJson(path.resolve(arg, "package.json"), function (er, data) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >er.code !== "ENOENT" </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >er.code !== "ENOTDIR")</span> <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+&nbsp;
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (data) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (!data.name) <span class="cstat-no" title="statement not covered" >return cb(new Error("No name provided"))</span>
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (!data.version) <span class="cstat-no" title="statement not covered" >return cb(new Error("No version provided"))</span>
+    }
+&nbsp;
+    // Error is OK. Could be publishing a URL or tarball, however, that means
+    // that we will not have automatically run the prepublish script, since
+    // that gets run when adding a folder to the cache.
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cacheAddPublish(arg, false, isRetry, cb)</span>
+    else cacheAddPublish(arg, true, isRetry, cb)
+  })
+}
+&nbsp;
+// didPre in this case means that we already ran the prepublish script,
+// and that the "dir" is an actual directory, and not something silly
+// like a tarball or name@version thing.
+// That means that we can run publish/postpublish in the dir, rather than
+// in the cache dir.
+function cacheAddPublish (dir, didPre, isRetry, cb) {
+  npm.commands.cache.add(dir, null, null, false, function (er, data) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+    log.silly("publish", data)
+    var cachedir = path.resolve(cachedPackageRoot(data), "package")
+    chain([ !didPre &amp;&amp;
+<span class="branch-1 cbranch-no" title="branch not covered" >          [lifecycle, data, "prepublish", cachedir]</span>
+        , [publish_, dir, data, isRetry, cachedir]
+        , [lifecycle, data, "publish", didPre ? dir : <span class="branch-1 cbranch-no" title="branch not covered" >cachedir]</span>
+        , [lifecycle, data, "postpublish", didPre ? dir : <span class="branch-1 cbranch-no" title="branch not covered" >cachedir]</span> ]
+      , cb )
+  })
+}
+&nbsp;
+function publish_ (arg, data, isRetry, cachedir, cb) {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!data) <span class="cstat-no" title="statement not covered" >return cb(new Error("no package.json file found"))</span>
+&nbsp;
+  var mappedConfig = getPublishConfig(
+    data.publishConfig,
+    npm.config,
+    npm.registry
+  )
+  var config = mappedConfig.config
+  var registry = mappedConfig.client
+&nbsp;
+  data._npmVersion  = npm.version
+  data._nodeVersion = process.versions.node
+&nbsp;
+  delete data.modules
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (data.private) <span class="cstat-no" title="statement not covered" >return cb(</span>
+    new Error(
+      "This package has been marked as private\n" +
+      "Remove the 'private' field from the package.json to publish it."
+    )
+  )
+&nbsp;
+  mapToRegistry(data.name, config, function (er, registryURI, auth, registryBase) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+&nbsp;
+    var tarballPath = cachedir + ".tgz"
+&nbsp;
+    // we just want the base registry URL in this case
+    log.verbose("publish", "registryBase", registryBase)
+    log.silly("publish", "uploading", tarballPath)
+&nbsp;
+    data._npmUser = {
+      name  : auth.username,
+      email : auth.email
+    }
+&nbsp;
+    var params = {
+      metadata : data,
+      body     : createReadStream(tarballPath),
+      auth     : auth
+    }
+&nbsp;
+    // registry-frontdoor cares about the access level, which is only
+    // configurable for scoped packages
+    if (config.get("access")) {
+      if (!npa(data.name).scope &amp;&amp; config.get("access") === "restricted") {
+        return cb(new Error("Can't restrict access to unscoped packages."))
+      }
+&nbsp;
+      params.access = config.get("access")
+    }
+&nbsp;
+    registry.publish(registryBase, params, function (er) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er &amp;&amp; er.code === "EPUBLISHCONFLICT" &amp;&amp;
+<span class="branch-2 cbranch-no" title="branch not covered" >          npm.config.get("force") </span>&amp;&amp; <span class="branch-3 cbranch-no" title="branch not covered" >!isRetry)</span> {
+<span class="cstat-no" title="statement not covered" >        log.warn("publish", "Forced publish over " + data._id)</span>
+<span class="cstat-no" title="statement not covered" >        return npm.commands.unpublish([data._id], <span class="fstat-no" title="function not covered" >function (er) {</span></span>
+          // ignore errors.  Use the force.  Reach out with your feelings.
+          // but if it fails again, then report the first error.
+<span class="cstat-no" title="statement not covered" >          publish([arg], er || true, cb)</span>
+        })
+      }
+      // report the unpublish error if this was a retry and unpublish failed
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er &amp;&amp; isRetry &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >isRetry !== true)</span> <span class="cstat-no" title="statement not covered" >return cb(isRetry)</span>
+      if (er) return cb(er)
+      console.log("+ " + data._id)
+      cb()
+    })
+  })
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 16 2015 16:39:59 GMT-0700 (PDT)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

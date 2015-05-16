@@ -1,0 +1,804 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./lib/build.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">./lib/build.js</span></h1>
+    <h2>
+        Statements: <span class="metric">93.89% <small>(123 / 131)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">87.96% <small>(95 / 108)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(27 / 27)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">97.27% <small>(107 / 110)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">./lib/</a> &#187; build.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">102</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">102</span>
+<span class="cline-any cline-yes">102</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">102</span>
+<span class="cline-any cline-yes">102</span>
+<span class="cline-any cline-yes">102</span>
+<span class="cline-any cline-yes">270</span>
+<span class="cline-any cline-yes">270</span>
+<span class="cline-any cline-yes">270</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">270</span>
+<span class="cline-any cline-yes">270</span>
+<span class="cline-any cline-yes">270</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">338</span>
+<span class="cline-any cline-yes">338</span>
+<span class="cline-any cline-yes">338</span>
+<span class="cline-any cline-yes">338</span>
+<span class="cline-any cline-yes">338</span>
+<span class="cline-any cline-yes">338</span>
+<span class="cline-any cline-yes">338</span>
+<span class="cline-any cline-yes">336</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">102</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">335</span>
+<span class="cline-any cline-yes">335</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">335</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">334</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">102</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">336</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">336</span>
+<span class="cline-any cline-yes">336</span>
+<span class="cline-any cline-yes">336</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">336</span>
+<span class="cline-any cline-yes">336</span>
+<span class="cline-any cline-yes">336</span>
+<span class="cline-any cline-yes">336</span>
+<span class="cline-any cline-yes">336</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">336</span>
+<span class="cline-any cline-yes">336</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1008</span>
+<span class="cline-any cline-yes">1007</span>
+<span class="cline-any cline-yes">1007</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">102</span>
+<span class="cline-any cline-yes">336</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">336</span>
+<span class="cline-any cline-yes">336</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">238</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">238</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">193</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">178</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">122</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">223</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">102</span>
+<span class="cline-any cline-yes">335</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">335</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">335</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">335</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">119</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">119</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">300</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">74</span>
+<span class="cline-any cline-yes">74</span>
+<span class="cline-any cline-yes">74</span>
+<span class="cline-any cline-yes">68</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">68</span>
+<span class="cline-any cline-yes">68</span>
+<span class="cline-any cline-yes">68</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">102</span>
+<span class="cline-any cline-yes">336</span>
+<span class="cline-any cline-yes">308</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">102</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">102</span>
+<span class="cline-any cline-yes">336</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">107</span>
+<span class="cline-any cline-yes">107</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">107</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">107</span>
+<span class="cline-any cline-yes">107</span>
+<span class="cline-any cline-yes">107</span>
+<span class="cline-any cline-yes">107</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">106</span>
+<span class="cline-any cline-yes">106</span>
+<span class="cline-any cline-yes">106</span>
+<span class="cline-any cline-yes">106</span>
+<span class="cline-any cline-yes">106</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">106</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// npm build command
+&nbsp;
+// everything about the installation after the creation of
+// the .npm/{name}/{version}/package folder.
+// linking the modules into the npm.root,
+// resolving dependencies, etc.
+&nbsp;
+// This runs AFTER install or link are completed.
+&nbsp;
+var npm = require("./npm.js")
+  , log = require("npmlog")
+  , chain = require("slide").chain
+  , fs = require("graceful-fs")
+  , path = require("path")
+  , lifecycle = require("./utils/lifecycle.js")
+  , readJson = require("read-package-json")
+  , link = require("./utils/link.js")
+  , linkIfExists = link.ifExists
+  , cmdShim = require("cmd-shim")
+  , cmdShimIfExists = cmdShim.ifExists
+  , asyncMap = require("slide").asyncMap
+  , ini = require("ini")
+  , writeFile = require("write-file-atomic")
+&nbsp;
+module.exports = build
+build.usage = "npm build &lt;folder&gt;\n(this is plumbing)"
+&nbsp;
+build._didBuild = {}
+build._noLC = {}
+function build (args, global, didPre, didRB, cb) {
+  if (typeof cb !== "function") cb = didRB, didRB = false
+  if (typeof cb !== "function") cb = didPre, didPre = false
+  if (typeof cb !== "function") {
+    cb = global, global = npm.config.get("global")
+  }
+  // it'd be nice to asyncMap these, but actually, doing them
+  // in parallel generally munges up the output from node-waf
+  var builder = build_(global, didPre, didRB)
+  chain(args.map(function (arg) { return function (cb) {
+    builder(arg, cb)
+  }}), cb)
+}
+&nbsp;
+function build_ (global, didPre, didRB) { return function (folder, cb) {
+  folder = path.resolve(folder)
+  if (build._didBuild[folder]) log.info("build", "already built", folder)
+  build._didBuild[folder] = true
+  log.info("build", folder)
+  readJson(path.resolve(folder, "package.json"), function (er, pkg) {
+    if (er) return cb(er)
+    chain
+      ( [ !didPre &amp;&amp; [lifecycle, pkg, "preinstall", folder]
+        , [linkStuff, pkg, folder, global, didRB]
+        , [writeBuiltinConf, pkg, folder]
+        , didPre !== build._noLC &amp;&amp; [lifecycle, pkg, "install", folder]
+        , didPre !== build._noLC &amp;&amp; [lifecycle, pkg, "postinstall", folder]
+        , didPre !== build._noLC
+          &amp;&amp; npm.config.get("npat")
+          &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >[lifecycle, pkg, "test", folder] </span>]
+      , cb )
+  })
+}}
+&nbsp;
+function writeBuiltinConf (pkg, folder, cb) {
+  // the builtin config is "sticky". Any time npm installs
+  // itself globally, it puts its builtin config file there
+  var parent = path.dirname(folder)
+  var dir = npm.globalDir
+&nbsp;
+  if (pkg.name !== "npm" ||
+      !npm.config.get("global") ||
+      !npm.config.usingBuiltin ||
+      dir !== parent) {
+    return cb()
+  }
+&nbsp;
+  var data = ini.stringify(npm.config.sources.builtin.data)
+  writeFile(path.resolve(folder, "npmrc"), data, cb)
+}
+&nbsp;
+function linkStuff (pkg, folder, global, didRB, cb) {
+  // allow to opt out of linking binaries.
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (npm.config.get("bin-links") === false) <span class="cstat-no" title="statement not covered" >return cb()</span>
+&nbsp;
+  // if it's global, and folder is in {prefix}/node_modules,
+  // then bins are in {prefix}/bin
+  // otherwise, then bins are in folder/../.bin
+  var parent = pkg.name[0] === '@' ? path.dirname(path.dirname(folder)) : path.dirname(folder)
+  var gnm = global &amp;&amp; npm.globalDir
+  var gtop = parent === gnm
+&nbsp;
+  log.info('linkStuff', pkg._id)
+  log.silly('linkStuff', pkg._id, 'has', parent, 'as its parent node_modules')
+  if (global) log.silly('linkStuff', pkg._id, 'is part of a global install')
+  if (gnm) log.silly('linkStuff', pkg._id, 'is installed into a global node_modules')
+  if (gtop) log.silly('linkStuff', pkg._id, 'is installed into the top-level global node_modules')
+&nbsp;
+  shouldWarn(pkg, folder, global, function () {
+    asyncMap(
+      [linkBins, linkMans, !didRB &amp;&amp; rebuildBundles],
+      function (fn, cb) {
+        if (!fn) return cb()
+        log.verbose(fn.name, pkg._id)
+        fn(pkg, folder, parent, gtop, cb)
+      },
+      cb
+    )
+  })
+}
+&nbsp;
+function shouldWarn(pkg, folder, global, cb) {
+  var parent = path.dirname(folder)
+    , top = parent === npm.dir
+    , cwd = npm.localPrefix
+&nbsp;
+  readJson(path.resolve(cwd, "package.json"), function(er, topPkg) {
+    if (er) return cb(er)
+&nbsp;
+    var linkedPkg = path.basename(cwd)
+      , currentPkg = path.basename(folder)
+&nbsp;
+    // current searched package is the linked package on first call
+    if (linkedPkg !== currentPkg) {
+&nbsp;
+      if (!topPkg.dependencies) return cb()
+&nbsp;
+      // don't generate a warning if it's listed in dependencies
+      if (Object.keys(topPkg.dependencies).indexOf(currentPkg) === -1) {
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (top &amp;&amp; pkg.preferGlobal &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >!global)</span> {
+<span class="cstat-no" title="statement not covered" >          log.warn("prefer global", pkg._id + " should be installed with -g")</span>
+        }
+      }
+    }
+&nbsp;
+    cb()
+  })
+}
+&nbsp;
+function rebuildBundles (pkg, folder, parent, gtop, cb) {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!npm.config.get("rebuild-bundle")) <span class="cstat-no" title="statement not covered" >return cb()</span>
+&nbsp;
+  var deps = Object.keys(pkg.dependencies || {})
+             .concat(Object.keys(pkg.devDependencies || {}))
+    , bundles = pkg.bundleDependencies || pkg.bundledDependencies || []
+&nbsp;
+  fs.readdir(path.resolve(folder, "node_modules"), function (er, files) {
+    // error means no bundles
+    if (er) return cb()
+&nbsp;
+    log.verbose("rebuildBundles", files)
+    // don't asyncMap these, because otherwise build script output
+    // gets interleaved and is impossible to read
+    chain(files.filter(function (file) {
+      // rebuild if:
+      // not a .folder, like .bin or .hooks
+      return !file.match(/^[\._-]/)
+          // not some old 0.x style bundle
+          &amp;&amp; file.indexOf("@") === -1
+          // either not a dep, or explicitly bundled
+          &amp;&amp; (deps.indexOf(file) === -1 || bundles.indexOf(file) !== -1)
+    }).map(function (file) {
+      file = path.resolve(folder, "node_modules", file)
+      return function (cb) {
+        if (build._didBuild[file]) return cb()
+        log.verbose("rebuild bundle", file)
+        // if file is not a package dir, then don't do it.
+        fs.lstat(path.resolve(file, "package.json"), function (er) {
+          <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb()</span>
+          build_(false)(file, cb)
+        })
+    }}), cb)
+  })
+}
+&nbsp;
+function linkBins (pkg, folder, parent, gtop, cb) {
+  if (!pkg.bin || !gtop &amp;&amp; path.basename(parent) !== "node_modules") {
+    return cb()
+  }
+  var binRoot = gtop ? npm.globalBin
+                     : path.resolve(parent, ".bin")
+  log.verbose("link bins", [pkg.bin, binRoot, gtop])
+&nbsp;
+  asyncMap(Object.keys(pkg.bin), function (b, cb) {
+    linkBin( path.resolve(folder, pkg.bin[b])
+           , path.resolve(binRoot, b)
+           , gtop &amp;&amp; folder
+           , function (er) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+      // bins should always be executable.
+      // XXX skip chmod on windows?
+      var src = path.resolve(folder, pkg.bin[b])
+      fs.chmod(src, npm.modes.exec, function (er) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (er &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >er.code === "ENOENT" </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >npm.config.get("ignore-scripts"))</span> {
+<span class="cstat-no" title="statement not covered" >          return cb()</span>
+        }
+        if (er || !gtop) return cb(er)
+        var dest = path.resolve(binRoot, b)
+          , out = npm.config.get("parseable")
+                ? <span class="branch-0 cbranch-no" title="branch not covered" >dest + "::" + src + ":BINFILE"</span>
+                : dest + " -&gt; " + src
+        console.log(out)
+        cb()
+      })
+    })
+  }, cb)
+}
+&nbsp;
+function linkBin (from, to, gently, cb) {
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (process.platform !== "win32") {
+    return linkIfExists(from, to, gently, cb)
+  } else {
+<span class="cstat-no" title="statement not covered" >    return cmdShimIfExists(from, to, cb)</span>
+  }
+}
+&nbsp;
+function linkMans (pkg, folder, parent, gtop, cb) {
+  if (!pkg.man || !gtop || process.platform === "win32") return cb()
+&nbsp;
+  var manRoot = path.resolve(npm.config.get("prefix"), "share", "man")
+  log.verbose("linkMans", "man files are", pkg.man, "in", manRoot)
+&nbsp;
+  // make sure that the mans are unique.
+  // otherwise, if there are dupes, it'll fail with EEXIST
+  var set = pkg.man.reduce(function (acc, man) {
+    acc[path.basename(man)] = man
+    return acc
+  }, {})
+  pkg.man = pkg.man.filter(function (man) {
+    return set[path.basename(man)] === man
+  })
+&nbsp;
+  asyncMap(pkg.man, function (man, cb) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof man !== "string") <span class="cstat-no" title="statement not covered" >return cb()</span>
+    log.silly("linkMans", "preparing to link", man)
+    var parseMan = man.match(/(.*\.([0-9]+)(\.gz)?)$/)
+    if (!parseMan) {
+      return cb(new Error(
+        man+" is not a valid name for a man file.  " +
+        "Man files must end with a number, " +
+        "and optionally a .gz suffix if they are compressed."
+      ))
+    }
+&nbsp;
+    var stem = parseMan[1]
+    var sxn = parseMan[2]
+    var bn = path.basename(stem)
+    var manSrc = path.resolve(folder, man)
+    var manDest = path.join(manRoot, "man" + sxn, bn)
+&nbsp;
+    linkIfExists(manSrc, manDest, gtop &amp;&amp; folder, cb)
+  }, cb)
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 16 2015 16:39:59 GMT-0700 (PDT)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./lib/cache/add-remote-tarball.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../prettify.css">
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">./lib/cache/add-remote-tarball.js</span></h1>
+    <h2>
+        Statements: <span class="metric">89.29% <small>(50 / 56)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">82.14% <small>(23 / 28)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">92.31% <small>(12 / 13)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">90.57% <small>(48 / 53)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">./lib/cache/</a> &#187; add-remote-tarball.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111</td><td class="line-coverage"><span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-yes">135</span>
+<span class="cline-any cline-yes">135</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-yes">134</span>
+<span class="cline-any cline-yes">131</span>
+<span class="cline-any cline-yes">131</span>
+<span class="cline-any cline-yes">131</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">134</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">135</span>
+<span class="cline-any cline-yes">135</span>
+<span class="cline-any cline-yes">134</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">134</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-yes">134</span>
+<span class="cline-any cline-yes">133</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">134</span>
+<span class="cline-any cline-yes">134</span>
+<span class="cline-any cline-yes">134</span>
+<span class="cline-any cline-yes">134</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">134</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">134</span>
+<span class="cline-any cline-yes">134</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">134</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">134</span>
+<span class="cline-any cline-yes">134</span>
+<span class="cline-any cline-yes">134</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">134</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143</span>
+<span class="cline-any cline-yes">134</span>
+<span class="cline-any cline-yes">134</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">133</span>
+<span class="cline-any cline-yes">133</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">133</span>
+<span class="cline-any cline-yes">133</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">125</span>
+<span class="cline-any cline-yes">125</span>
+<span class="cline-any cline-yes">125</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">125</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">133</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var mkdir = require("mkdirp")
+  , assert = require("assert")
+  , log = require("npmlog")
+  , path = require("path")
+  , sha = require("sha")
+  , retry = require("retry")
+  , createWriteStream = require("fs-write-stream-atomic")
+  , npm = require("../npm.js")
+  , inflight = require("inflight")
+  , addLocalTarball = require("./add-local-tarball.js")
+  , cacheFile = require("npm-cache-filename")
+&nbsp;
+module.exports = addRemoteTarball
+&nbsp;
+function addRemoteTarball (u, pkgData, shasum, auth, cb_) {
+  assert(typeof u === "string", "must have module URL")
+  assert(typeof cb_ === "function", "must have callback")
+&nbsp;
+  function cb (er, data) {
+    if (data) {
+      data._from = u
+      data._resolved = u
+      data._shasum = data._shasum || <span class="branch-1 cbranch-no" title="branch not covered" >shasum</span>
+    }
+    cb_(er, data)
+  }
+&nbsp;
+  cb_ = inflight(u, cb_)
+  if (!cb_) return log.verbose("addRemoteTarball", u, "already in flight; waiting")
+  log.verbose("addRemoteTarball", u, "not in flight; adding")
+&nbsp;
+  // XXX Fetch direct to cache location, store tarballs under
+  // ${cache}/registry.npmjs.org/pkg/-/pkg-1.2.3.tgz
+  var tmp = cacheFile(npm.tmp, u)
+&nbsp;
+  function next (er, resp, shasum) {
+    if (er) return cb(er)
+    addLocalTarball(tmp, pkgData, shasum, cb)
+  }
+&nbsp;
+  log.verbose("addRemoteTarball", [u, shasum])
+  mkdir(path.dirname(tmp), function (er) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+    addRemoteTarball_(u, tmp, shasum, auth, next)
+  })
+}
+&nbsp;
+function addRemoteTarball_ (u, tmp, shasum, auth, cb) {
+  // Tuned to spread 3 attempts over about a minute.
+  // See formula at &lt;https://github.com/tim-kos/node-retry&gt;.
+  var operation = retry.operation({
+    retries: npm.config.get("fetch-retries")
+  , factor: npm.config.get("fetch-retry-factor")
+  , minTimeout: npm.config.get("fetch-retry-mintimeout")
+  , maxTimeout: npm.config.get("fetch-retry-maxtimeout")
+  })
+&nbsp;
+  operation.attempt(function (currentAttempt) {
+    log.info("retry", "fetch attempt " + currentAttempt
+      + " at " + (new Date()).toLocaleTimeString())
+    fetchAndShaCheck(u, tmp, shasum, auth, function (er, response, shasum) {
+      // Only retry on 408, 5xx or no `response`.
+      var sc = response &amp;&amp; response.statusCode
+      var statusRetry = !sc || (sc === 408 || sc &gt;= 500)
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (er &amp;&amp; statusRetry &amp;&amp; operation.retry(er)) {
+<span class="cstat-no" title="statement not covered" >        log.warn("retry", "will retry, error on last attempt: " + er)</span>
+<span class="cstat-no" title="statement not covered" >        return</span>
+      }
+      cb(er, response, shasum)
+    })
+  })
+}
+&nbsp;
+function fetchAndShaCheck (u, tmp, shasum, auth, cb) {
+  npm.registry.fetch(u, { auth : auth }, function (er, response) {
+    if (er) {
+      log.error("fetch failed", u)
+      return cb(er, response)
+    }
+&nbsp;
+    var tarball = createWriteStream(tmp, { mode : npm.modes.file })
+    tarball.on("error", <span class="fstat-no" title="function not covered" >function (er) {</span>
+<span class="cstat-no" title="statement not covered" >      cb(er)</span>
+<span class="cstat-no" title="statement not covered" >      tarball.destroy()</span>
+    })
+&nbsp;
+    tarball.on("finish", function () {
+      if (!shasum) {
+        // Well, we weren't given a shasum, so at least sha what we have
+        // in case we want to compare it to something else later
+        return sha.get(tmp, function (er, shasum) {
+          log.silly("fetchAndShaCheck", "shasum", shasum)
+          cb(er, response, shasum)
+        })
+      }
+&nbsp;
+      // validate that the url we just downloaded matches the expected shasum.
+      log.silly("fetchAndShaCheck", "shasum", shasum)
+      sha.check(tmp, shasum, function (er) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (er &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >er.message)</span> {
+          // add original filename for better debuggability
+<span class="cstat-no" title="statement not covered" >          er.message = er.message + "\n" + "From:     " + u</span>
+        }
+        return cb(er, response, shasum)
+      })
+    })
+&nbsp;
+    response.pipe(tarball)
+  })
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 16 2015 16:39:59 GMT-0700 (PDT)</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

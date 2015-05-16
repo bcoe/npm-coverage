@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./lib/run-script.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">./lib/run-script.js</span></h1>
+    <h2>
+        Statements: <span class="metric">67.89% <small>(74 / 109)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">48.86% <small>(43 / 88)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">76.47% <small>(13 / 17)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">75% <small>(72 / 96)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">./lib/</a> &#187; run-script.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173</td><td class="line-coverage"><span class="cline-any cline-yes">76</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">76</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">76</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">76</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">76</span>
+<span class="cline-any cline-yes">76</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">68</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">68</span>
+<span class="cline-any cline-yes">68</span>
+<span class="cline-any cline-yes">68</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">76</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">56</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">39</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">76</span>
+<span class="cline-any cline-yes">68</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">68</span>
+<span class="cline-any cline-yes">68</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">65</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">63</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">66</span>
+<span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">66</span>
+<span class="cline-any cline-yes">66</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">158</span>
+<span class="cline-any cline-yes">63</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">158</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">76</span>
+<span class="cline-any cline-yes">63</span>
+<span class="cline-any cline-yes">63</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">63</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">module.exports = runScript
+&nbsp;
+var lifecycle = require("./utils/lifecycle.js")
+  , npm = require("./npm.js")
+  , path = require("path")
+  , readJson = require("read-package-json")
+  , log = require("npmlog")
+  , chain = require("slide").chain
+&nbsp;
+runScript.usage = "npm run-script &lt;command&gt; [-- &lt;args&gt;]"
+&nbsp;
+runScript.completion = <span class="fstat-no" title="function not covered" >function (opts, cb) {</span>
+&nbsp;
+  // see if there's already a package specified.
+<span class="cstat-no" title="statement not covered" >  var argv = opts.conf.argv.remain</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (argv.length &gt;= 4) <span class="cstat-no" title="statement not covered" >return cb()</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (argv.length === 3) {</span>
+    // either specified a script locally, in which case, done,
+    // or a package, in which case, complete against its scripts
+<span class="cstat-no" title="statement not covered" >    var json = path.join(npm.localPrefix, "package.json")</span>
+<span class="cstat-no" title="statement not covered" >    return readJson(json, <span class="fstat-no" title="function not covered" >function (er, d) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (er &amp;&amp; er.code !== "ENOENT" &amp;&amp; er.code !== "ENOTDIR") <span class="cstat-no" title="statement not covered" >return cb(er)</span></span>
+<span class="cstat-no" title="statement not covered" >      if (er) <span class="cstat-no" title="statement not covered" >d = {}</span></span>
+<span class="cstat-no" title="statement not covered" >      var scripts = Object.keys(d.scripts || {})</span>
+<span class="cstat-no" title="statement not covered" >      console.error("local scripts", scripts)</span>
+<span class="cstat-no" title="statement not covered" >      if (scripts.indexOf(argv[2]) !== -1) <span class="cstat-no" title="statement not covered" >return cb()</span></span>
+      // ok, try to find out which package it was, then
+<span class="cstat-no" title="statement not covered" >      var pref = npm.config.get("global") ? npm.config.get("prefix")</span>
+               : npm.localPrefix
+<span class="cstat-no" title="statement not covered" >      var pkgDir = path.resolve( pref, "node_modules"</span>
+                               , argv[2], "package.json" )
+<span class="cstat-no" title="statement not covered" >      readJson(pkgDir, <span class="fstat-no" title="function not covered" >function (er, d) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (er &amp;&amp; er.code !== "ENOENT" &amp;&amp; er.code !== "ENOTDIR") <span class="cstat-no" title="statement not covered" >return cb(er)</span></span>
+<span class="cstat-no" title="statement not covered" >        if (er) <span class="cstat-no" title="statement not covered" >d = {}</span></span>
+<span class="cstat-no" title="statement not covered" >        var scripts = Object.keys(d.scripts || {})</span>
+<span class="cstat-no" title="statement not covered" >        return cb(null, scripts)</span>
+      })
+    })
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  readJson(path.join(npm.localPrefix, "package.json"), <span class="fstat-no" title="function not covered" >function (er, d) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (er &amp;&amp; er.code !== "ENOENT" &amp;&amp; er.code !== "ENOTDIR") <span class="cstat-no" title="statement not covered" >return cb(er)</span></span>
+<span class="cstat-no" title="statement not covered" >    d = d || {}</span>
+<span class="cstat-no" title="statement not covered" >    cb(null, Object.keys(d.scripts || {}))</span>
+  })
+}
+&nbsp;
+function runScript (args, cb) {
+  if (!args.length) return list(cb)
+&nbsp;
+  var pkgdir = npm.localPrefix
+    , cmd = args.shift()
+&nbsp;
+  readJson(path.resolve(pkgdir, "package.json"), function (er, d) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+    run(d, pkgdir, cmd, args, cb)
+  })
+}
+&nbsp;
+function list(cb) {
+  var json = path.join(npm.localPrefix, "package.json")
+  var cmdList = [ "publish", "install", "uninstall"
+                , "test", "stop", "start", "restart"
+                ].reduce(function (l, p) {
+                  return l.concat(["pre" + p, p, "post" + p])
+                }, [])
+  return readJson(json, function(er, d) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >er.code !== "ENOENT" </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >er.code !== "ENOTDIR")</span> <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >d = {}</span>
+    var allScripts = Object.keys(d.scripts || <span class="branch-1 cbranch-no" title="branch not covered" >{})</span>
+    var scripts = []
+    var runScripts = []
+    allScripts.forEach(function (script) {
+      if (cmdList.indexOf(script) !== -1) scripts.push(script)
+      else runScripts.push(script)
+    })
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (log.level === "silent") {
+<span class="cstat-no" title="statement not covered" >      return cb(null, allScripts)</span>
+    }
+&nbsp;
+    if (npm.config.get("json")) {
+      console.log(JSON.stringify(d.scripts || <span class="branch-1 cbranch-no" title="branch not covered" >{},</span> null, 2))
+      return cb(null, allScripts)
+    }
+&nbsp;
+    if (npm.config.get("parseable")) {
+      allScripts.forEach(function(script) {
+        console.log(script + ":" + d.scripts[script])
+      })
+      return cb(null, allScripts)
+    }
+&nbsp;
+    var s = "\n    "
+    var prefix = "  "
+    if (scripts.length) {
+      console.log("Lifecycle scripts included in %s:", d.name)
+    }
+    scripts.forEach(function(script) {
+      console.log(prefix + script + s + d.scripts[script])
+    })
+    if (!scripts.length &amp;&amp; runScripts.length) {
+      console.log("Scripts available in %s via `npm run-script`:", d.name)
+    }
+    else if (runScripts.length) {
+      console.log("\navailable via `npm run-script`:")
+    }
+    runScripts.forEach(function(script) {
+      console.log(prefix + script + s + d.scripts[script])
+    })
+    return cb(null, allScripts)
+  })
+}
+&nbsp;
+function run (pkg, wd, cmd, args, cb) {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!pkg.scripts) <span class="cstat-no" title="statement not covered" >pkg.scripts = {}</span>
+&nbsp;
+  var cmds
+  if (cmd === "restart" &amp;&amp; !pkg.scripts.restart) {
+    cmds = [
+      "prestop", "stop", "poststop",
+      "restart",
+      "prestart", "start", "poststart"
+    ]
+  } else {
+    if (!pkg.scripts[cmd]) {
+      if (cmd === "test") {
+        pkg.scripts.test = "echo \"Error: no test specified\""
+      } else if (cmd === "env") {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (process.platform === "win32") {
+<span class="cstat-no" title="statement not covered" >          log.verbose("run-script using default platform env: SET (Windows)")</span>
+<span class="cstat-no" title="statement not covered" >          pkg.scripts[cmd] = "SET"</span>
+        } else {
+          log.verbose("run-script using default platform env: env (Unix)")
+          pkg.scripts[cmd] = "env"
+        }
+      } else if (npm.config.get("if-present")) {
+        return cb(null);
+      } else {
+        return cb(new Error("missing script: " + cmd))
+      }
+    }
+    cmds = [cmd]
+  }
+&nbsp;
+  if (!cmd.match(/^(pre|post)/)) {
+    cmds = ["pre"+cmd].concat(cmds).concat("post"+cmd)
+  }
+&nbsp;
+  log.verbose("run-script", cmds)
+  chain(cmds.map(function (c) {
+    // pass cli arguments after -- to script.
+    if (pkg.scripts[c] &amp;&amp; c === cmd) {
+      pkg.scripts[c] = pkg.scripts[c] + joinArgs(args)
+    }
+&nbsp;
+    // when running scripts explicitly, assume that they're trusted.
+    return [lifecycle, pkg, c, wd, true]
+  }), cb)
+}
+&nbsp;
+// join arguments after '--' and pass them to script,
+// handle special characters such as ', ", ' '.
+function joinArgs (args) {
+  var joinedArgs = ""
+  args.forEach(function(arg) {
+    joinedArgs += ' "' + arg.replace(/"/g, '\\"') + '"'
+  })
+  return joinedArgs
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 16 2015 16:39:59 GMT-0700 (PDT)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

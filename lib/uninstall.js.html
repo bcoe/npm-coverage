@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./lib/uninstall.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./lib/uninstall.js</span></h1>
+    <h2>
+        Statements: <span class="metric">33.33% <small>(24 / 72)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">22.22% <small>(12 / 54)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">41.67% <small>(5 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">37.7% <small>(23 / 61)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">./lib/</a> &#187; uninstall.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+// remove a package.
+&nbsp;
+module.exports = uninstall
+&nbsp;
+uninstall.usage = "npm uninstall &lt;name&gt;[@&lt;version&gt; [&lt;name&gt;[@&lt;version&gt;] ...]"
+                + "\nnpm rm &lt;name&gt;[@&lt;version&gt; [&lt;name&gt;[@&lt;version&gt;] ...]"
+&nbsp;
+uninstall.completion = require("./utils/completion/installed-shallow.js")
+&nbsp;
+var fs = require("graceful-fs")
+  , writeFileAtomic = require("write-file-atomic")
+  , log = require("npmlog")
+  , readJson = require("read-package-json")
+  , path = require("path")
+  , npm = require("./npm.js")
+  , asyncMap = require("slide").asyncMap
+&nbsp;
+function uninstall (args, cb) {
+  // this is super easy
+  // get the list of args that correspond to package names in either
+  // the global npm.dir,
+  // then call unbuild on all those folders to pull out their bins
+  // and mans and whatnot, and then delete the folder.
+&nbsp;
+  var nm = npm.dir
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (args.length === 1 &amp;&amp; args[0] === ".") <span class="cstat-no" title="statement not covered" >args = []</span>
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (args.length) return uninstall_(args, nm, cb)
+&nbsp;
+  // remove this package from the global space, if it's installed there
+<span class="cstat-no" title="statement not covered" >  readJson(path.resolve(npm.localPrefix, "package.json"), <span class="fstat-no" title="function not covered" >function (er, pkg) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (er &amp;&amp; er.code !== "ENOENT" &amp;&amp; er.code !== "ENOTDIR") <span class="cstat-no" title="statement not covered" >return cb(er)</span></span>
+<span class="cstat-no" title="statement not covered" >    if (er) <span class="cstat-no" title="statement not covered" >return cb(uninstall.usage)</span></span>
+<span class="cstat-no" title="statement not covered" >    uninstall_( [pkg.name]</span>
+              , npm.globalDir
+              , cb )
+  })
+&nbsp;
+}
+&nbsp;
+function uninstall_ (args, nm, cb) {
+  // if we've been asked to --save or --save-dev or --save-optional,
+  // then also remove it from the associated dependencies hash.
+  var s = npm.config.get('save')
+    , d = npm.config.get('save-dev')
+    , o = npm.config.get('save-optional')
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (s || d || o) {
+<span class="cstat-no" title="statement not covered" >    cb = saver(args, nm, cb)</span>
+  }
+&nbsp;
+  asyncMap(args, function (arg, cb) {
+    // uninstall .. should not delete /usr/local/lib/node_modules/..
+    var p = path.join(path.resolve(nm), path.join("/", arg))
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (path.resolve(p) === nm) {
+<span class="cstat-no" title="statement not covered" >      log.warn("uninstall", "invalid argument: %j", arg)</span>
+<span class="cstat-no" title="statement not covered" >      return cb(null, [])</span>
+    }
+    fs.lstat(p, function (er) {
+      if (er) {
+        log.warn("uninstall", "not installed in %s: %j", nm, arg)
+        return cb(null, [])
+      }
+      cb(null, p)
+    })
+  }, function (er, folders) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (er) <span class="cstat-no" title="statement not covered" >return cb(er)</span>
+    asyncMap(folders, npm.commands.unbuild, cb)
+  })
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function saver (args, nm, cb_) {</span>
+<span class="cstat-no" title="statement not covered" >  return cb</span>
+<span class="fstat-no" title="function not covered" >  function cb (er, data) {</span>
+<span class="cstat-no" title="statement not covered" >    var s = npm.config.get('save')</span>
+      , d = npm.config.get('save-dev')
+      , o = npm.config.get('save-optional')
+<span class="cstat-no" title="statement not covered" >    if (er || !(s || d || o)) <span class="cstat-no" title="statement not covered" >return cb_(er, data)</span></span>
+<span class="cstat-no" title="statement not covered" >    var pj = path.resolve(nm, '..', 'package.json')</span>
+    // don't use readJson here, because we don't want all the defaults
+    // filled in, for mans and other bs.
+<span class="cstat-no" title="statement not covered" >    fs.readFile(pj, 'utf8', <span class="fstat-no" title="function not covered" >function (er, json) {</span></span>
+<span class="cstat-no" title="statement not covered" >      var pkg</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        pkg = JSON.parse(json)</span>
+      } catch (_) {}
+<span class="cstat-no" title="statement not covered" >      if (!pkg) <span class="cstat-no" title="statement not covered" >return cb_(null, data)</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var bundle</span>
+<span class="cstat-no" title="statement not covered" >      if (npm.config.get('save-bundle')) {</span>
+<span class="cstat-no" title="statement not covered" >        bundle = pkg.bundleDependencies || pkg.bundledDependencies</span>
+<span class="cstat-no" title="statement not covered" >        if (!Array.isArray(bundle)) <span class="cstat-no" title="statement not covered" >bundle = undefined</span></span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var changed = false</span>
+<span class="cstat-no" title="statement not covered" >      args.forEach(<span class="fstat-no" title="function not covered" >function (a) {</span></span>
+        ; <span class="cstat-no" title="statement not covered" >[ [s, 'dependencies']</span>
+          , [o, 'optionalDependencies']
+          , [d, 'devDependencies'] ].forEach(<span class="fstat-no" title="function not covered" >function (f) {</span>
+<span class="cstat-no" title="statement not covered" >            var flag = f[0]</span>
+              , field = f[1]
+<span class="cstat-no" title="statement not covered" >            if (!flag || !pkg[field] || !pkg[field].hasOwnProperty(a)) <span class="cstat-no" title="statement not covered" >return</span></span>
+<span class="cstat-no" title="statement not covered" >            changed = true</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (bundle) {</span>
+<span class="cstat-no" title="statement not covered" >              var i = bundle.indexOf(a)</span>
+<span class="cstat-no" title="statement not covered" >              if (i !== -1) <span class="cstat-no" title="statement not covered" >bundle.splice(i, 1)</span></span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            delete pkg[field][a]</span>
+          })
+      })
+<span class="cstat-no" title="statement not covered" >      if (!changed) <span class="cstat-no" title="statement not covered" >return cb_(null, data)</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (bundle) {</span>
+<span class="cstat-no" title="statement not covered" >        delete pkg.bundledDependencies</span>
+<span class="cstat-no" title="statement not covered" >        if (bundle.length) {</span>
+<span class="cstat-no" title="statement not covered" >          pkg.bundleDependencies = bundle</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          delete pkg.bundleDependencies</span>
+        }
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      writeFileAtomic(pj, JSON.stringify(pkg, null, 2) + "\n", <span class="fstat-no" title="function not covered" >function (er) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return cb_(er, data)</span>
+      })
+    })
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 16 2015 16:39:59 GMT-0700 (PDT)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
